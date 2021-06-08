@@ -1,8 +1,6 @@
 package org.mostafaism.problemsolving.datastructure.HashTable;
 
 import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +15,8 @@ public class LinkedListArrayHashTableTest {
         hashTable.put(1, 100);
 
         // then
-        assertTrue(hashTable.contains(1));
-        assertEquals(hashTable.get(1), 100);
+        then(hashTable.contains(1)).isTrue();
+        then(hashTable.get(1)).isEqualTo(100);
     }
 
     @Test
