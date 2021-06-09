@@ -41,3 +41,8 @@
           - O(N\*lg(N))
         - Space
           - O(1)
+
+### Notes (from the book's solution)
+
+- If str.length() > charset, you can automatically return false.
+- You can reduce space usage by a factor of 8 by replacing Set<Characters> (or char[]) with a bit vector.
