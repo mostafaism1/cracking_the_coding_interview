@@ -1,48 +1,42 @@
 # Problem 1.1 Is Unique
 
-- ## Statement
+- ### Statement
 
   1. Implement an algorithm to determine if a string has all unique characters.
   1. What if you cannot use additional data structures?
 
-- ## Brain storming
+- ### Solution 1
 
-  - ### part 1
+  - #### Steps
 
-    - #### Solution 1
+    1. Create a Set<Character> to hold all the characters seen so far.
+    2. Iterate over the string's characters, and check that !set.contains\(c).
 
-      - #### Steps
+  - #### Analysis
 
-        1. Create a Set<Character>, that will hold all the characters seen so far.
-        2. Iterate over the string's characters, and check that !set.contains\(c).
+    - Time
 
-      - #### Analysis
+      - O(N)
 
-        - Time
+    - Space
+      - O(N)
 
-          - O(N)
+- ### Solution 2
 
-        - Space
-          - O(N)
+  - #### Steps
 
-  - ### part 2
+    1.  Sort the string.
+    2.  Iterate over the string's characters,
+        and check s.chartAt(i) != s.charAt(i-1), where i ranges from 1 to s.length -1.
 
-    - #### Solution 2
+  - #### Analysis
 
-      - #### Steps
+    - Time
+      - O(N\*lg(N))
+    - Space
+      - O(1)
 
-        1.  Sort the string.
-        2.  Iterate over the string's characters,
-            and check s.chartAt(i) != s.charAt(i-1), where i ranges from 1 to s.length -1.
+- ### Notes (from the book's solution)
 
-      - #### Analysis
-
-        - Time
-          - O(N\*lg(N))
-        - Space
-          - O(1)
-
-### Notes (from the book's solution)
-
-- If str.length() > charset, you can automatically return false.
-- You can reduce space usage by a factor of 8 by replacing Set<Characters> (or char[]) with a bit vector.
+  - If str.length() > charset, you can automatically return false.
+  - You can reduce the space usage by a factor of 8 by replacing Set<Characters> (or char[]) with a bit vector.
