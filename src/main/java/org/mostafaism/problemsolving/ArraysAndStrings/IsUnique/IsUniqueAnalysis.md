@@ -39,4 +39,5 @@
 - ### Notes (from the book's solution)
 
   - If str.length() > charset, you can automatically return false.
-  - You can reduce the space usage by a factor of 8 by replacing Set<Characters> (or char[]) with a bit vector.
+  - You can reduce the space usage by a factor of 8 by replacing Set<Characters> (or char[]) with a bit vector (you can use an int as the bit vector i.e. 32 bits, assuming only 'a'-'z' characters are allowed).
+  - Keep in mind, if the **char_set_size** is a constant then the space complexity is actually O(1) not O(S).

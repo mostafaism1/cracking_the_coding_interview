@@ -45,3 +45,8 @@
     - Space
 
       - O(1)
+
+- ### Notes (from the book's solution)
+
+  - Instead of using a Map<Character, Integer>, you can use int[char_set_size].
+  - Keep in mind, if the **char_set_size** is a constant then the space complexity is actually O(1) not O(S).
