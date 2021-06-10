@@ -18,5 +18,5 @@ The solutions are implemented in **Java**.
     - Lists the optimal solution(s), followed by a detailed algorithmic analysis.
   - {ProblemName}.java
     - Contains a single class, and public method(s), named after the class, implementing the optimal solution(s).
-    - Note: In the case of more than 1 optimal solution, the methods are postfixed with the same index as the solution implemented.
+    - **Note**: In the case of more than 1 optimal solution, the methods are postfixed with the same index as the solution implemented.
   - Helper classes (whenever extra classes lead to a more modular design).
