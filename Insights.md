@@ -1,6 +1,8 @@
 # Insights
 
-    - Insights I gained through going these problems.
+- Insights I gained by going through these problems.
+
+---
 
 1. Brainstorm multiple solutions, using both **focused** mode and **diffuse** mode, until you reach an optimal solution.
 
