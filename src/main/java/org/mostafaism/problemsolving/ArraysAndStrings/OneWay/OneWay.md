@@ -36,7 +36,3 @@
 
     - ## Space
       - O(1)
-
-- ### Notes (from the book's solution)
-
-  -
