@@ -20,10 +20,10 @@
 
 3. Use **functional programming** (Streams in Java 8) for the following operations:
 
-- Map
-- Filter
-- Reduce
-- Collect (i.e. mutable reduction)
+   - Map
+   - Filter
+   - Reduce
+   - Collect (i.e. mutable reduction)
 
 4. Prefer **pure** functions that maps its inputs to outputs with zero side effects whenever possible, even at the cost of performance.
    (In **most** situations a constant factor increase in time is not be noticeable)
