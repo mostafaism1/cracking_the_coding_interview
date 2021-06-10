@@ -26,9 +26,7 @@
    - Collect (i.e. mutable reduction)
 
 4. Prefer **pure** functions that maps its inputs to outputs with zero side effects whenever possible, even at the cost of performance.
-   (In **most** situations a constant factor increase in time is not be noticeable)
-   (Gains from side-effect free code will more than pay up for the performance hit with better readability, maintainability and extensibility)
 
-- Exceptions: in-place algorithms require mutation.
-
-5.
+   - In **most** situations a constant factor increase in time is not noticeable.
+   - Gains from side-effect free code will more than pay up for the performance hit with better readability, maintainability and extensibility.
+   - Exceptions: in-place algorithms require mutation.
