@@ -10,10 +10,10 @@
   - #### Steps
 
     1. Check str1.length() == str2.length().
-    2. Create a frequancyMap<Character, Integer>.
-    3. Iterate over str1 and increment frequancyMap\(c).
-    4. Iterate over str2, check frequancyMap.contains\(c), and decrement frequancyMap\(c).
-    5. check all values in frequancyMap are 0.
+    2. Create a frequencyMap<Character, Integer>.
+    3. Iterate over str1 and increment frequencyMap\(c).
+    4. Iterate over str2, check frequencyMap.contains\(c), and decrement frequencyMap\(c).
+    5. check all values in frequencyMap are 0.
 
   - #### Analysis
 

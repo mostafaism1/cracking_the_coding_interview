@@ -12,10 +12,10 @@ public class CheckPermutation {
         if (str1.length() != str2.length()) {
             return false;
         }
-        Map<Character, Integer> characterFrequancy1 = getCharacterFrequancy(str1);
-        Map<Character, Integer> characterFrequancy2 = getCharacterFrequancy(str2);
-        Map<Character, Integer> differenceFrequancy = substractMaps(characterFrequancy1, characterFrequancy2);
-        return allZero(differenceFrequancy) ? true : false;
+        Map<Character, Integer> characterFrequency1 = getCharacterFrequency(str1);
+        Map<Character, Integer> characterFrequency2 = getCharacterFrequency(str2);
+        Map<Character, Integer> differenceFrequency = substractMaps(characterFrequency1, characterFrequency2);
+        return allZero(differenceFrequency) ? true : false;
     }
 
     public boolean checkPermutation2(String str1, String str2) {
@@ -27,7 +27,7 @@ public class CheckPermutation {
         return sortedStr1.equals(sortedStr2) ? true : false;
     }
 
-    private Map<Character, Integer> getCharacterFrequancy(String str) {
+    private Map<Character, Integer> getCharacterFrequency(String str) {
         return str.chars().mapToObj(i -> (char) i)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(c -> 1)));
     }

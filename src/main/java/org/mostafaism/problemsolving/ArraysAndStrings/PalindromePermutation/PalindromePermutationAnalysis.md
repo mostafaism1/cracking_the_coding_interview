@@ -12,8 +12,8 @@
 
   - #### Steps
 
-    1. Create a frequancy map for the string's characters.
-    2. If the length of the string is even, then **every** character **must** occur at an even frequancy, otherwise **only 1** character **must** occur at an odd frequancy.
+    1. Create a frequency map for the string's characters.
+    2. If the length of the string is even, then **every** character **must** occur at an even frequency, otherwise **only 1** character **must** occur at an odd frequency.
 
   - #### Analysis
 
