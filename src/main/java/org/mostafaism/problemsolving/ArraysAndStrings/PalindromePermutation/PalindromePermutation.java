@@ -9,7 +9,7 @@ public class PalindromePermutation {
     public boolean palindromePermutation(String str) {
         Map<Character, Integer> frequencyMap = getFrequencyMap(str);
         long oddCount = countOdd(frequencyMap);
-        return str.length() % 2 == 0 ? oddCount == 0 : oddCount == 1;
+        return oddCount <= 1;
     }
 
     private long countOdd(Map<Character, Integer> frequencyMap) {
