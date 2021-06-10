@@ -1,6 +1,7 @@
 package org.mostafaism.problemsolving.ArraysAndStrings.URLify;
 
 import static org.assertj.core.api.BDDAssertions.then;
+
 import org.junit.jupiter.api.Test;
 
 public class URLifyTest {
@@ -18,7 +19,7 @@ public class URLifyTest {
         char[] expected = str;
 
         // when, then
-        then(urlify.URLify(str, trueLength)).isEqualTo(expected);
+        then(urlify.urlify(str, trueLength)).isEqualTo(expected);
     }
 
     @Test
@@ -39,7 +40,7 @@ public class URLifyTest {
         expected[4] = 'c';
 
         // when, then
-        then(urlify.URLify(str, trueLength)).isEqualTo(expected);
+        then(urlify.urlify(str, trueLength)).isEqualTo(expected);
     }
 
     @Test
@@ -62,7 +63,7 @@ public class URLifyTest {
         expected[6] = '0';
 
         // when, then
-        then(urlify.URLify(str, trueLength)).isEqualTo(expected);
+        then(urlify.urlify(str, trueLength)).isEqualTo(expected);
     }
 
 }

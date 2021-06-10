@@ -3,7 +3,7 @@ package org.mostafaism.problemsolving.ArraysAndStrings.URLify;
 public class URLify {
     private static final String URL_SPACE = "%20";
 
-    public char[] URLify(char[] str, int trueLength) {
+    public char[] urlify(char[] str, int trueLength) {
         int spaces = countSpaces(str, trueLength);
         int difference = URL_SPACE.length() - 1;
         int displacement = spaces * difference;
