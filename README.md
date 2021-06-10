@@ -1,4 +1,4 @@
-# cracking-the-coding-interview
+# Cracking The Coding Interview
 
 - This repo is a record of my attempts at practising and honing my problem solving skills, implementing popular data structures, and designing, analyzing and implementing optimal algorithms.
 
@@ -17,6 +17,6 @@ The solutions are implemented in **Java**.
   - {ProbleName}Analysis.md
     - Lists the optimal solution(s), followed by a detailed algorithmic analysis.
   - {ProblemName}.java
-    - Contains a single class, and public method(s), named after the class, for implementing the optimal solution(s).
+    - Contains a single class, and public method(s), named after the class, implementing the optimal solution(s).
     - Note: In the case of more than 1 optimal solution, the methods are postfixed with the same index as the solution implemented.
   - Helper classes (whenever extra classes lead to a more modular design).
