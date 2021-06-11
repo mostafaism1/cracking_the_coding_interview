@@ -30,3 +30,5 @@
    - In **most** situations a constant factor increase in time is not noticeable.
    - Gains from side-effect free code will more than pay up for the performance hit with better readability, maintainability and extensibility.
    - Exceptions: in-place algorithms require mutation.
+
+5. Whenver you're implementing a complex and confusing iterative algorithm (think multiple conditions inside the loop), try to think of a recursive algorith instead; Sometimes just thinking about a recursive algorithm with a base case and a recursive step can help you better structure your iterative algorithm along the same lines as the base case and recursive step.
