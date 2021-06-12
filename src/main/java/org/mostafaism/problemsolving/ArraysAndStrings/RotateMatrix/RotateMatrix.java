@@ -17,14 +17,14 @@ public class RotateMatrix {
         Point axis = getRotationAxis(matrix);
         Point p1 = new Point(column, row);
         Point p2 = p1.rotate90(axis);
-        int p1Value = matrix[(int) p1.getY()][(int) p1.getX()];
-        int p2Value = matrix[(int) p2.getY()][(int) p2.getX()];
+        int p1Value = getValue(matrix, p1);
+        int p2Value = getValue(matrix, p2);
         for (int k = 0; k < DEGREES_CIRCLE / DEGREES_ROTATION; k++) {
             setValue(matrix, p2, p1Value);
             p1 = p1.rotate90(axis);
             p2 = p2.rotate90(axis);
             p1Value = p2Value;
-            p2Value = matrix[(int) p2.getY()][(int) p2.getX()];
+            p2Value = getValue(matrix, p2);
         }
     }
 
@@ -40,5 +40,9 @@ public class RotateMatrix {
 
     private void setValue(int[][] matrix, Point point, int value) {
         matrix[(int) point.getY()][(int) point.getX()] = value;
+    }
+
+    private int getValue(int[][] matrix, Point point) {
+        return matrix[(int) point.getY()][(int) point.getX()];
     }
 }
