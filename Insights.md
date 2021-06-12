@@ -12,11 +12,13 @@
 
    - If you stick to this principle you'll find that your functions have a single responsibility (the responsibility being what the name says it does) and are short, making your code clearer, more readable, and maintainable.
 
-   - A useful technique to use when you are still un-clear about how to implement something is to write a function declaration with an empty body (or returning a default value for the return type), this allows you to move on to implementing other functionality that make use of the function, and implementing the function later.
+   - A useful technique to use when you are still un-clear about how to implement something is to write a function declaration with an empty body (or returning a default value for the return type), this allows you to move on to implementing other functionality that make use of R function, and implementing the function later.
 
    - Another useful technique when you are reading/debugging a piece of code that you do not understand is to carve it up into multiple functions with meaningful names.
 
-   - Note: This principle also applies to other programming constructs such as variables/constants and classes.
+   - Note: This principle also applies to other programming constructs such as:
+     - variables/constants: A variable's name **stands for** a value.
+     - classes.: A class' name **stands for** both behaviour and state.
 
 3. Use **functional programming** (Streams in Java 8) for the following operations:
 
@@ -32,3 +34,11 @@
    - Exceptions: in-place algorithms require mutation.
 
 5. Whenver you're implementing a complex and confusing iterative algorithm (think multiple conditions inside the loop), try to think of a recursive algorith instead; Sometimes just thinking about a recursive algorithm with a base case and a recursive step can help you better structure your iterative algorithm along the same lines as the base case and recursive step.
+
+6. For spatial problems (ex. rotating a matrix), which are usually 2 dimensional (but can be 3 dimensional too), utilize the principles of **linear algebra**, most importantly **Independence**:
+   - i, j, k are independent.
+   - Basically break down the operation (ex. rotation), into its effects on each independent co-ordinate separately, then add the effects.
+
+- It's also very helpful to make a helper class, such as `Point`, that encapsulates the spatial co-ordinates, x, y, and z, and the operations you might want to perform, such as rotation.
+  - However, note that **x maps to a column index** and **y to a row index**, so accessing your 2 dimensional array should be done like so:
+    - `arr[p.y][p.x]`.
