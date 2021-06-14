@@ -39,10 +39,10 @@ public class RotateMatrix {
     }
 
     private void setValue(int[][] matrix, Point point, int value) {
-        matrix[(int) point.getY()][(int) point.getX()] = value;
+        matrix[(int) Math.round(point.getY())][(int) Math.round(point.getX())] = value;
     }
 
     private int getValue(int[][] matrix, Point point) {
-        return matrix[(int) point.getY()][(int) point.getX()];
+        return matrix[(int) Math.round(point.getY())][(int) Math.round(point.getX())];
     }
 }
