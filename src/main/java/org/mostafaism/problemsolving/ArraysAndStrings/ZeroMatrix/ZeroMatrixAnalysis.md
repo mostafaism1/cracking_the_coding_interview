@@ -18,6 +18,10 @@
 
     4. We'll then iterate over each set, and zero out the corresponding entire row or column.
 
+    5. To reduce the space to O(1), we can utilize the matrix itself for our storage needs, by doing the following:
+
+    - Perform an initial iteration to find the first (i, j) with a zero, if one exists, and then use row i and column j as our storage.
+
   - #### Analysis
 
     - Time
@@ -25,4 +29,10 @@
       - O(NxM)
 
     - ## Space
-      - O(N+M)
+      - Using sets
+        - O(N+M)
+      - Using the matrix for storage
+        - O(1)
+
+- ### Notes
+  - I implemented the O(N + M) space solution, because the O(1) solution is really **inelegant**.
