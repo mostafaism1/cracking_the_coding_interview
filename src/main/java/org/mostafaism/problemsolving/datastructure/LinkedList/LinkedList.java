@@ -39,4 +39,11 @@ public interface LinkedList<K> {
      *         current node
      */
     int size();
+
+    /**
+     * Returns the head node of this list.
+     * 
+     * @return the head node of this list
+     */
+    Node<K> getHead();
 }
