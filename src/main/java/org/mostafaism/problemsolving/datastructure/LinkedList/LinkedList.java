@@ -30,4 +30,13 @@ public interface LinkedList<K> {
      * @return true if node is the nil node, otherwise false
      */
     boolean isNil(Node<K> node);
+
+    /**
+     * Returns the number of nodes from this node to the tail node, including the
+     * current node.
+     * 
+     * @return the number of nodes from this node to the tail node, including the
+     *         current node
+     */
+    int size();
 }
