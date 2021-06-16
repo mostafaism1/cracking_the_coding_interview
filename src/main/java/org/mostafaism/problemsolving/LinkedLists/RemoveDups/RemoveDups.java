@@ -14,7 +14,7 @@ public class RemoveDups {
     }
 
     /**
-     * Removes any nodes after n with a key equal to n.
+     * Removes any nodes after n with a key equal to n.key.
      * 
      * @param list the list which n belongs to
      * @param n    the node whose key we want to check for duplicates
