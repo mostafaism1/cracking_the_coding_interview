@@ -37,6 +37,17 @@ public class DoublyLinkedList<K> implements LinkedList<K> {
         return node == nil;
     }
 
+    @Override
+    public int size() {
+        int result = 0;
+        Node<K> n = getHead();
+        while (!isNil(n)) {
+            n = n.next;
+            result++;
+        }
+        return result;
+    }
+
     private Node getHead() {
         return nil.next;
     }
