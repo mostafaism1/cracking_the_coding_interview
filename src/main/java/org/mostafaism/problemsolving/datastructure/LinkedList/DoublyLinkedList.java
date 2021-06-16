@@ -1,6 +1,6 @@
 package org.mostafaism.problemsolving.datastructure.LinkedList;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
+@SuppressWarnings({ "unchecked" })
 public class DoublyLinkedList<K> implements LinkedList<K> {
 
     private Node<K> nil;
