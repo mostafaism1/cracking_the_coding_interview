@@ -78,4 +78,66 @@ public class DoublyLinkedListTest {
         then(actual).isTrue();
     }
 
+    @Test
+    void size_should_return_0_when_list_is_empty() {
+        // given
+
+        // when
+        int actual = list.size();
+
+        // then
+        then(actual).isZero();
+    }
+
+    @Test
+    void size_should_return_1_when_list_has_1_element() {
+        // given
+        Integer key = 1;
+        Node<Integer> node = new Node<>(key);
+
+        // when
+        list.add(node);
+        int actual = list.size();
+
+        // then
+        then(actual).isOne();
+    }
+
+    @Test
+    void size_should_return_2_when_list_has_2_element() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+
+        // when
+        list.add(node1);
+        list.add(node2);
+        int actual = list.size();
+
+        // then
+        then(actual).isEqualTo(2);
+    }
+
+    @Test
+    void size_should_return_3_when_list_has_3_element() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Integer key3 = 3;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        Node<Integer> node3 = new Node<>(key3);
+
+        // when
+        list.add(node1);
+        list.add(node2);
+        list.add(node3);
+        int actual = list.size();
+
+        // then
+        then(actual).isEqualTo(3);
+    }
+
 }
