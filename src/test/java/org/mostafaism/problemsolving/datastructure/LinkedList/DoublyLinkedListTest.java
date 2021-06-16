@@ -140,4 +140,71 @@ public class DoublyLinkedListTest {
         then(actual).isEqualTo(3);
     }
 
+    /**
+     * 
+     * 
+     */
+
+    @Test
+    void getHead_should_return_nil_node_when_list_is_empty() {
+        // given
+
+        // when
+        boolean actual = list.isNil(list.getHead());
+
+        // then
+        then(actual).isTrue();
+    }
+
+    @Test
+    void getHead_should_return_last_node_added_when_list_has_1_element() {
+        // given
+        Integer key = 1;
+        Node<Integer> node = new Node<>(key);
+
+        // when
+        list.add(node);
+        Node<Integer> actual = list.getHead();
+
+        // then
+        then(actual).isEqualTo(node);
+    }
+
+    @Test
+    void getHead_should_return_last_node_added_when_list_has_2_element() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+
+        // when
+        list.add(node1);
+        list.add(node2);
+        Node<Integer> actual = list.getHead();
+
+        // then
+        then(actual).isEqualTo(node2);
+    }
+
+    @Test
+    void getHead_should_return_last_node_added_when_list_has_3_element() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Integer key3 = 3;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        Node<Integer> node3 = new Node<>(key3);
+
+        // when
+        list.add(node1);
+        list.add(node2);
+        list.add(node3);
+        Node<Integer> actual = list.getHead();
+
+        // then
+        then(actual).isEqualTo(node3);
+    }
+
 }
