@@ -6,10 +6,10 @@ import org.mostafaism.problemsolving.datastructure.LinkedList.Node;
 public class RemoveDups {
 
     public void removeDups(LinkedList<Integer> list) {
-        Node<Integer> n = list.getHead();
-        while (!list.isNil(n)) {
-            removeDupsOfNode(list, n);
-            n = n.next;
+        Node<Integer> current = list.getHead();
+        while (!list.isNil(current)) {
+            removeDupsOfNode(list, current);
+            current = current.next;
         }
     }
 
@@ -20,12 +20,12 @@ public class RemoveDups {
      * @param n    the node whose key we want to check for duplicates
      */
     private void removeDupsOfNode(LinkedList<Integer> list, Node<Integer> n) {
-        Node<Integer> m = n.next;
-        while (!list.isNil(m)) {
-            if (m.key == n.key) {
-                list.remove(m);
+        Node<Integer> runner = n.next;
+        while (!list.isNil(runner)) {
+            if (runner.key == n.key) {
+                list.remove(runner);
             }
-            m = m.next;
+            runner = runner.next;
         }
     }
 
