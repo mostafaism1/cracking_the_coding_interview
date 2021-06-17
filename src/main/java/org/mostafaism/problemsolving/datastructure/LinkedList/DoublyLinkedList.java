@@ -53,4 +53,9 @@ public class DoublyLinkedList<K> implements LinkedList<K> {
         return nil.next;
     }
 
+    @Override
+    public Node<K> getNil() {
+        return nil;
+    }
+
 }
