@@ -42,3 +42,5 @@
 - It's also very helpful to make a helper class, such as `Point`, that encapsulates the spatial co-ordinates, x, y, and z, and the operations you might want to perform, such as rotation.
   - However, note that **x maps to a column index** and **y to a row index**, so accessing your 2 dimensional array should be done like so:
     - `arr[p.y][p.x]`.
+
+7. Use **standard names**, for example when you want to have nested iterations over a linked list, you should call the outer iteration variable `current` and the inner variable `runner`.
