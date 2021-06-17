@@ -207,4 +207,66 @@ public class DoublyLinkedListTest {
         then(actual).isEqualTo(node3);
     }
 
+    @Test
+    void get_nil_should_return_nil_node_when_list_size_is_0() {
+        // given
+
+        // when
+        Node<Integer> actual = list.getNil();
+
+        // then
+        then(list.isNil(actual)).isTrue();
+    }
+
+    @Test
+    void get_nil_should_return_nil_node_when_list_size_is_1() {
+        // given
+        Integer key = 1;
+        Node<Integer> node = new Node<>(key);
+        list.add(node);
+
+        // when
+        Node<Integer> actual = list.getNil();
+
+        // then
+        then(list.isNil(actual)).isTrue();
+    }
+
+    @Test
+    void get_nil_should_return_nil_node_when_list_size_is_2() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        list.add(node1);
+        list.add(node2);
+
+        // when
+        Node<Integer> actual = list.getNil();
+
+        // then
+        then(list.isNil(actual)).isTrue();
+    }
+
+    @Test
+    void get_nil_should_return_nil_node_when_list_size_is_3() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Integer key3 = 3;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        Node<Integer> node3 = new Node<>(key3);
+        list.add(node1);
+        list.add(node2);
+        list.add(node3);
+
+        // when
+        Node<Integer> actual = list.getNil();
+
+        // then
+        then(list.isNil(actual)).isTrue();
+    }
+
 }
