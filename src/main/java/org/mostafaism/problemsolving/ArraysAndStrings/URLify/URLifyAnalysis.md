@@ -22,5 +22,5 @@
 
       - O(S)
 
-    - ## Space
+    - Space
       - O(1)
