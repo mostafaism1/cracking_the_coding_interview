@@ -46,4 +46,11 @@ public interface LinkedList<K> {
      * @return the head node of this list
      */
     Node<K> getHead();
+
+    /**
+     * Returns the nil node.
+     * 
+     * @return the nil node
+     */
+    Node<K> getNil();
 }
