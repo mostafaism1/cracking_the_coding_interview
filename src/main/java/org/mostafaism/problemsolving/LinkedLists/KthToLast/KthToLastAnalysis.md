@@ -58,4 +58,4 @@
 
 - ### Notes
 
-  - The
+  - The reason why the recursive algorithm specified requires the use of global state, is because it requires the function to return 2 values (a node and a counter), but a function can only return 1 value, however we can solve this problem by introducing a new type (class/record) which encapsulates both values, and let our function return that new type instead.
