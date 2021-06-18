@@ -61,4 +61,14 @@ public interface LinkedList<K> {
      * @return true if node belongs to this list, otherwise false.
      */
     boolean contains(Node<K> node);
+
+    /**
+     * Returns the index of the specified node in this list, or -1 if the node does
+     * not belong to this list.
+     * 
+     * @param node a node.
+     * @return the index of the specified node in this list, or -1 if the node does
+     *         not belong to this list.
+     */
+    int indexOf(Node<K> node);
 }
