@@ -348,4 +348,99 @@ public class DoublyLinkedListTest {
         then(actual).isTrue();
     }
 
+    @Test
+    void index_of_should_return_negative_1_when_list_is_empty() {
+        // given
+        Integer key1 = 1;
+        Node<Integer> node1 = new Node<>(key1);
+
+        // when
+        int actual = list.indexOf(node1);
+
+        // then
+        then(actual).isEqualTo(-1);
+    }
+
+    @Test
+    void index_of_should_return_negative_1_when_node_does_not_belong_to_list_and_list_size_is_1() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        list.add(node1);
+
+        // when
+        int actual = list.indexOf(node2);
+
+        // then
+        then(actual).isEqualTo(-1);
+    }
+
+    @Test
+    void index_of_should_return_0_when_node_belongs_to_list_and_list_size_is_1() {
+        // given
+        Integer key1 = 1;
+        Node<Integer> node1 = new Node<>(key1);
+        list.add(node1);
+
+        // when
+        int actual = list.indexOf(node1);
+
+        // then
+        then(actual).isZero();
+    }
+
+    @Test
+    void index_of_should_return_negative_1_when_node_does_not_belongs_to_list_and_list_size_is_2() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Integer key3 = 3;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        Node<Integer> node3 = new Node<>(key3);
+        list.add(node1);
+        list.add(node2);
+
+        // when
+        int actual = list.indexOf(node3);
+
+        // then
+        then(actual).isEqualTo(-1);
+    }
+
+    @Test
+    void index_of_should_return_0_when_node_is_the_head_of_the_list_and_list_size_is_2() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        list.add(node1);
+        list.add(node2);
+
+        // when
+        int actual = list.indexOf(node2);
+
+        // then
+        then(actual).isZero();
+    }
+
+    @Test
+    void index_of_should_return_1_when_node_is_the_tail_of_the_list_and_list_size_is_2() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        list.add(node1);
+        list.add(node2);
+
+        // when
+        int actual = list.indexOf(node1);
+
+        // then
+        then(actual).isOne();
+    }
 }
