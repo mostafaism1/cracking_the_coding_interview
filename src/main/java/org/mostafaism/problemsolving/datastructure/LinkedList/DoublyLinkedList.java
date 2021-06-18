@@ -67,4 +67,14 @@ public class DoublyLinkedList<K> implements LinkedList<K> {
         return isNil(runner) ? false : true;
     }
 
+    @Override
+    public int indexOf(Node<K> node) {
+        int result = 0;
+        Node<K> runner = getHead();
+        while (!isNil(runner) && runner != node) {
+            result++;
+            runner = runner.next;
+        }
+        return isNil(runner) ? -1 : result;
+    }
 }
