@@ -269,4 +269,83 @@ public class DoublyLinkedListTest {
         then(list.isNil(actual)).isTrue();
     }
 
+    @Test
+    void contains_should_return_false_when_list_is_empty() {
+        // given
+        Integer key1 = 1;
+        Node<Integer> node1 = new Node<>(key1);
+
+        // when
+        boolean actual = list.contains(node1);
+
+        // then
+        then(actual).isFalse();
+    }
+
+    @Test
+    void contains_should_return_false_when_node_does_not_belong_to_list_and_list_size_is_1() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        list.add(node1);
+
+        // when
+        boolean actual = list.contains(node2);
+
+        // then
+        then(actual).isFalse();
+    }
+
+    @Test
+    void contains_should_return_true_when_node_belongs_to_list_and_list_size_is_1() {
+        // given
+        Integer key1 = 1;
+        Node<Integer> node1 = new Node<>(key1);
+        list.add(node1);
+
+        // when
+        boolean actual = list.contains(node1);
+
+        // then
+        then(actual).isTrue();
+    }
+
+    @Test
+    void contains_should_return_false_when_node_does_not_belongs_to_list_and_list_size_is_2() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Integer key3 = 3;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        Node<Integer> node3 = new Node<>(key3);
+        list.add(node1);
+        list.add(node2);
+
+        // when
+        boolean actual = list.contains(node3);
+
+        // then
+        then(actual).isFalse();
+    }
+
+    @Test
+    void contains_should_return_true_when_node_belongs_to_list_and_list_size_is_2() {
+        // given
+        Integer key1 = 1;
+        Integer key2 = 2;
+        Node<Integer> node1 = new Node<>(key1);
+        Node<Integer> node2 = new Node<>(key2);
+        list.add(node1);
+        list.add(node2);
+
+        // when
+        boolean actual = list.contains(node2);
+
+        // then
+        then(actual).isTrue();
+    }
+
 }
