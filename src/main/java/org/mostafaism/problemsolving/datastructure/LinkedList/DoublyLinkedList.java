@@ -58,4 +58,13 @@ public class DoublyLinkedList<K> implements LinkedList<K> {
         return nil;
     }
 
+    @Override
+    public boolean contains(Node<K> node) {
+        Node<K> runner = getHead();
+        while (!isNil(runner) && runner != node) {
+            runner = runner.next;
+        }
+        return isNil(runner) ? false : true;
+    }
+
 }
