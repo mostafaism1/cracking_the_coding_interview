@@ -48,3 +48,6 @@
 8. Use both **bounded type parameters** and **wildcard bounded type parameters** to make your APIs more flexible.
 
    - This advice actually comes from **Joshua Bloch**.
+
+9. For recursive algorithms, information/data flows up the stack through input parameters, and down the stack through the return **value** (notice value is **singular**).
+   - This is useful to know, especially when you want to pass multiple values down the stack, in which case, you must create a wrapper class that encapsulates all the values you want to return.
