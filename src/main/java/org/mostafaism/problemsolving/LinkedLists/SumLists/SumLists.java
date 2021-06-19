@@ -46,4 +46,7 @@ public class SumLists {
         return new PartialSum(partialSum.sum(), carry);
     }
 
+    private static record PartialSum(LinkedList<Integer> sum, int carry) {
+    }
+
 }
