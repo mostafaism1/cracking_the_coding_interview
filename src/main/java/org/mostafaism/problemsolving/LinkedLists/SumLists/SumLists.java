@@ -30,7 +30,7 @@ public class SumLists {
         }
     }
 
-    PartialSum sumListsHelper(LinkedList<Integer> list1, LinkedList<Integer> list2, Node<Integer> head1,
+    private PartialSum sumListsHelper(LinkedList<Integer> list1, LinkedList<Integer> list2, Node<Integer> head1,
             Node<Integer> head2) {
         // base case
         if (list1.isNil(head1) && list2.isNil(head2)) {
