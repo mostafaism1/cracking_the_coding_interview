@@ -43,11 +43,26 @@
   - However, note that **x maps to a column index** and **y to a row index**, so accessing your 2 dimensional array should be done like so:
     - `arr[p.y][p.x]`.
 
-7. Use **standard names**, for example when you want to have nested iterations over a linked list, you should call the outer iteration variable `current` and the inner variable `runner`.
+7. Use **standard names**, for example:
+
+- When you want to have nested iterations over a linked list, you should call the outer iteration variable `current` and the inner variable `runner`.
+- For recursive helper functions, if you need to create a custom return type, then you can add the prefix **Partial**, ex. `PartialSum`. You can also name the variable with the result of the recursive step using the same prefix.
 
 8. Use both **bounded type parameters** and **wildcard bounded type parameters** to make your APIs more flexible.
 
    - This advice actually comes from **Joshua Bloch**.
 
 9. For recursive algorithms, information/data flows up the stack through input parameters, and down the stack through the return **value** (notice value is **singular**).
+
    - This is useful to know, especially when you want to pass multiple values down the stack, in which case, you must create a wrapper class that encapsulates all the values you want to return.
+
+10. Traversing a singly linked list backwards, can be achieved through the use of a stack, or alternatively a recursive algorithm (which is basically a stack of function calls), at the cost of O(N) space.
+
+11. Use **private static** inner classes to represent types that are only used by your class, and instances of the inner class are not associated with your outer class (hence the **static** keyword, ex:
+
+- A very common use case is when defining a helper recursive function with a custom return type (to return multiple values).
+
+12. Use the **runner approach** in linked list problems, here's the explanation from the CTCI book:
+    > The runner technique means that you iterate through the linked list with **two pointers simultaneously**, with one **ahead** of the other. The "fast" node might be ahead by a fixed amount, or it might be hopping multiple nodes for each one node that the "slow" node iterates through.
+    > For example, suppose you had a linked list a 1 - >a2 -> ••• ->an - >b1 ->b2 -> ••• ->bn and you wanted to rearrange it into a1 ->b1 ->a2 - >b 2 -> ••• - >an - >bn. You do not know the length of the linked list (but you do know that the length is an even number).
+    > You could have one pointer pl (the fast pointer) move every two elements for every one move that p2 makes. When pl hits the end of the linked list, p2 will be at the midpoint. Then, move pl back to the front and begin "weaving" the elements. On each iteration, p2 selects an element and inserts it after pl.
