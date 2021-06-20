@@ -58,7 +58,9 @@
 
 10. Traversing a singly linked list backwards, can be achieved through the use of a stack, or alternatively a recursive algorithm (which is basically a stack of function calls), at the cost of O(N) space.
 
-11. Use **private static** inner classes to represent types that are only used by your class, and instances of the inner class are not associated with your outer class (hence the **static** keyword, ex:
+11. Related to the previous point (Point 10), a stack can be used to implement a recursive algorithm **iteratively**.
+
+12. Use **private static** inner classes to represent types that are only used by your class, and instances of the inner class are not associated with your outer class (hence the **static** keyword, ex:
 
 - A very common use case is when defining a helper recursive function with a custom return type (to return multiple values).
 
