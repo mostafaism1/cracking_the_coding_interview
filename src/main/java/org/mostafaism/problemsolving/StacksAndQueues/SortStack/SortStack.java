@@ -3,6 +3,12 @@ package org.mostafaism.problemsolving.StacksAndQueues.SortStack;
 import org.mostafaism.problemsolving.datastructure.Stack.DefaultStack;
 import org.mostafaism.problemsolving.datastructure.Stack.Stack;
 
+/*
+I actually did not understand the problem correctly, I thought it was asking 
+to implement a datastructure to sort a sequence of inserted elements using a stack, 
+however it's actually asking to write a method (not a class) that would sort a stack.
+Anyhow, both programs would be very similar, so I am not going to rewrite the solution.
+*/
 public class SortStack<E extends Comparable<E>> implements Stack<E> {
 
     private Stack<E> sortedStack;
