@@ -11,10 +11,14 @@ import org.junit.jupiter.api.Test;
 public class DefaultAnimalShelterQueueTest {
 
     private AnimalShelterQueue queue;
+    private Dog dog;
+    private Cat cat;
 
     @BeforeEach
     void setup() {
         queue = new DefaultAnimalShelterQueue();
+        dog = new Dog("Daisy");
+        cat = new Cat("Bella");
     }
 
     @Test
@@ -44,7 +48,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithOneDog_whenDequeueAny_ThenReturnDog() {
         // given
-        ShelterAnimal dog = new Dog("Dog");
         queue.enqueue(dog);
 
         // when
@@ -57,7 +60,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithOneDog_whenDequeueDog_ThenReturnDog() {
         // given
-        ShelterAnimal dog = new Dog("Dog");
         queue.enqueue(dog);
 
         // when
@@ -70,7 +72,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithOneDog_whenDequeueCat_ThenThrowException() {
         // given
-        ShelterAnimal dog = new Dog("Dog");
         queue.enqueue(dog);
 
         // when, then
@@ -80,7 +81,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithOneCat_whenDequeueAny_ThenReturnCat() {
         // given
-        ShelterAnimal cat = new Cat("Cat");
         queue.enqueue(cat);
 
         // when
@@ -93,7 +93,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithOneCat_whenDequeueCat_ThenThrowException() {
         // given
-        ShelterAnimal cat = new Cat("Cat");
         queue.enqueue(cat);
 
         // when
@@ -106,7 +105,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithOneCat_whenDequeueDog_ThenThrowException() {
         // given
-        ShelterAnimal cat = new Cat("Cat");
         queue.enqueue(cat);
 
         // when, then
@@ -116,8 +114,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithDogThenCat_whenDequeueAny_ThenReturnDog() {
         // given
-        ShelterAnimal dog = new Dog("Dog");
-        ShelterAnimal cat = new Cat("Cat");
         queue.enqueue(dog);
         queue.enqueue(cat);
 
@@ -131,8 +127,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithDogThenCat_whenDequeueDog_ThenReturnDog() {
         // given
-        ShelterAnimal dog = new Dog("Dog");
-        ShelterAnimal cat = new Cat("Cat");
         queue.enqueue(dog);
         queue.enqueue(cat);
 
@@ -146,8 +140,6 @@ public class DefaultAnimalShelterQueueTest {
     @Test
     void givenQueueWithDogThenCat_whenDequeueCat_ThenReturnCat() {
         // given
-        ShelterAnimal dog = new Dog("Dog");
-        ShelterAnimal cat = new Cat("Cat");
         queue.enqueue(dog);
         queue.enqueue(cat);
 
