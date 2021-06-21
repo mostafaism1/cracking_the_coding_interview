@@ -10,15 +10,14 @@ import org.mostafaism.problemsolving.datastructure.Stack.Stack;
 public class MyQueue<E> implements Queue<E> {
 
     private Stack<E> stack;
-    private Stack<E> temp;
 
     public MyQueue() {
         stack = new DefaultStack<>();
-        temp = new DefaultStack<>();
     }
 
     @Override
     public void add(E item) {
+        Stack<E> temp = new DefaultStack<>();
         while (!stack.isEmpty()) {
             temp.push(stack.pop());
         }
