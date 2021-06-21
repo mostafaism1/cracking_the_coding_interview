@@ -27,3 +27,6 @@
 - ### Notes
 
   - This problem is simple enough; I won't go through the implementation.
+  - Notice that we are storing the minimum element on each node, even though this minimum might not change between subsequent nodes.
+    - We can perform a space optimization, although it won't affect the big O space, The optimization is as follows:
+      - Use an additional stack to store the minimums. (for more details check the book book p. 232)
