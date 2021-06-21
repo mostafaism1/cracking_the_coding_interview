@@ -71,5 +71,9 @@
     > You could have one pointer pl (the fast pointer) move every two elements for every one move that p2 makes. When pl hits the end of the linked list, p2 will be at the midpoint. Then, move pl back to the front and begin "weaving" the elements. On each iteration, p2 selects an element and inserts it after pl.
 
 13. Queues are especially useful for the following 2 use cases:
+
     1. Breadth-first search.
     2. Implementing a cache.
+
+14. Use the same best practises on Test classes and Test methods that you use for regular classes and methods.
+    An example would be sharing test cases between 2 different implementations of the same interface, this can be achieved through placing the common test cases in an abstract class with a `protected` field of the interface type, each implementation's test class would then extend this abstract class and instantiate the protected field to its concrete type in a @BeforeEach.
