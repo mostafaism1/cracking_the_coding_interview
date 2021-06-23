@@ -42,7 +42,12 @@
       - Is a tree that is both **full** and **complete**.
       - All nodes will be at the **same level**, and this level has the **maximum** number of nodes.
 
-2. Binary Tree Traversal techniques.
+2. Representation
+
+   - Since you can reach all nodes from the root node, all you need is a TreeNode.
+   - You do **not** need a Tree class that wraps the root node, it doesn't add any value or clarity.
+
+3. Binary Tree Traversal techniques.
 
    1. In-order. (Most common)
    2. Pre-order.
@@ -51,7 +56,7 @@
    - It's important to differentiate between Traversal and Search (Depth-first and Breadth-first) techniques, traversal techniques are for listing **all** nodes in the tree, while searching is for looking up a **single** node with a certain value.
    - All traversal techniques are a form of **breadth-first** search.
 
-3. **Binary** Heaps (Min-Heaps and Max-Heaps)
+4. **Binary** Heaps (Min-Heaps and Max-Heaps)
 
    - Def. Min Heap
 
@@ -119,8 +124,14 @@
 4. Representation
 
    - **2** representations
+
      1. Adjacency list.
      2. Adjacency Matrix.
+
+     - Note:
+       - Unlike a tree, a graph can be disconnected, which means you cannot reach all nodes starting from a root node.
+       - Therefore to represent a graph you need to store all the graph nodes in a collection (Array, list).
+       - A **wrapping Graph class** is very useful to store this collection of nodes.
 
 5. Searching
 
