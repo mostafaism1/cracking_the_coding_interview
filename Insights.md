@@ -77,3 +77,8 @@
 
 14. Use the same best practises on Test classes and Test methods that you use for regular classes and methods.
     An example would be sharing test cases between 2 different implementations of the same interface, this can be achieved through placing the common test cases in an abstract class with a `protected` field of the interface type, each implementation's test class would then extend this abstract class and instantiate the protected field to its concrete type in a @BeforeEach.
+
+15. On why Trees & Graphs are more complicated than other **linearly** organized datastructures (i.e. Array, LinkedList, Stack, Queue):
+
+    1. **Searching** is more complicated.
+    2. Worst and Average case time **may vary widely**, and we **must** evaluate **both** aspects for any algorithm.
