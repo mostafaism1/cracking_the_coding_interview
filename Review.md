@@ -39,15 +39,16 @@
 
    6. Perfect Binary Trees.
 
-      - Is a tree that is both **full** and **complete**.
-      - All nodes will be at the **same level**, and this level has the **maximum** number of nodes.
+      - A perfect binary tree is a binary tree in which all **interior** nodes have **two children** and all **leaves** have the **same depth** or same level.
+
+   - Acronym: **FPS-BBC** (Full, Perfect, Search, Binary, Balanced, Complete)
 
 2. Representation
 
    - Since you can reach all nodes from the root node, all you need is a TreeNode.
    - You do **not** need a Tree class that wraps the root node, it doesn't add any value or clarity.
 
-3. Binary Tree Traversal techniques.
+3. **Binary** Tree Traversal techniques.
 
    1. In-order. (Most common)
    2. Pre-order.
@@ -60,7 +61,7 @@
 
    - Def. Min Heap
 
-     - A min-heap is has **2** properties:
+     - A min-heap has **2** properties:
 
        1. A complete binary tree (that is, totally filled other than the rightmost elements on the last level).
        2. **each node is smaller than its children**.
@@ -69,7 +70,7 @@
 
      - The way I like to think about Min/Max Heaps is by comparing them to Binary **Search** trees, and the difference is the following:
      - In Min/Max Heaps there's no relation/ordering between the values of **left and right subtree** nodes, the relation is only between a given subtree and its parent.
-     - In a Binary Search Tree there's all nodes in the left subtree are less than the those of the right subtree.
+     - In a Binary Search Tree, however, there's a relation between the values of **left and right subtree** nodes, all nodes in the left subtree are less than the those of the right subtree.
 
    - Min Heap Operations
 
@@ -77,14 +78,18 @@
 
        1. insert
 
-          1. To maintain the first property (**complete** tree property), we first insert the new element at the **rightmost bottom spot**.
-          2. To fix the Min Heap's second property (i.e. each node being smaller than its children ), we swap the element with its parent, until we find an appropriate spot for the element. (you can think of this operation as bubbling **up** the element to its correct place)
+          1. To maintain the **first** property (**complete** tree property), we first insert the new element at the **rightmost bottom spot**.
+          2. To fix the Min Heap's **second** property (i.e. each node being smaller than its children), we swap the element with its parent, until we find an appropriate spot for the element.
+             (You can think of this operation as bubbling **up** the element to its correct place)
 
        2. extractMin
           1. Remove the root element and **swap** it with the last element in the heap (i.e. the rightmost bottom node).
-          2. We then swap the new root element with one of its children (if one of the children is smaller than the element), repeat until we find the appropriate spot for the element. (you can think of this operation as bubbling **down** the element to its correct place)
+             (This maintains the **first property** i.e. **complete** tree property)
+          2. We then swap the new root element with one of its children (if one of the children is smaller than the element), and repeat until we find the appropriate spot for the element.
+             (You can think of this operation as bubbling **down** the element to its correct place)
+             (This maintains the **second property** i.e. each node being smaller than its children)
 
-   4. Tries (Pre-fix Trees)
+   4. Tries (**Pre-fix** Trees)
 
    - Stands for re-**TRIE**-val tree.
    - Is an **n-ary** tree.
@@ -100,7 +105,7 @@
 
    - Runtime analysis:
      - O(K), where K is the length of the string/prefix.
-     - Note: This is the **same** runtime as a HashTable, although we say that a HashTable is O(1), this is not entirely true, it'ss O(K), because it must read through all the characters of the input. (A HashTable being O(1), is only true if we assume the string length K is always less than an upper bound constant K < C)
+     - Note: This is the **same** runtime as a HashTable, although we say that a HashTable is O(1), this is not entirely true, it's O(K), because it must read through all the characters of the input. (A HashTable being O(1), is only true if we assume the string length K is always less than an upper bound constant K < C)
 
 ### Graphs
 
@@ -117,16 +122,25 @@
 3. Properties
 
    - Graphs have **3** properties
+
      1. Directed vs Undirected
      2. Connected vs Disconnected
      3. Cyclic vs Acyclic
+
+     - Acronym: **CDC** (i.e. Center for Disease Control) (Connected, Directed, Cyclic)
 
 4. Representation
 
    - **2** representations
 
-     1. Adjacency list.
+     1. Adjacency list. (Most common)
      2. Adjacency Matrix.
+
+     - Note:
+
+       - The same graph algorithms used on an adjacency list can be performed with adjacency matrices, but they may be somewhat **less efficient**.
+       - This is because in an adjacency list representation you can **easily obtain the neighbours of a node**.
+       - While in an adjacency matrix representation you will need to **iterate over all the nodes** to identify a node's neighbours.
 
      - Note:
        - Unlike a tree, a graph can be disconnected, which means you cannot reach all nodes starting from a root node.
@@ -153,4 +167,4 @@
 
    - Note: Since a tree is a graph, these search techniques also apply to trees.
    - Note: Tree **traversal** techniques are actually a form of Depth-first search.
-     The difference is that in breadth-first search we have to check if a node has **already been visited** to avoid infinite cycles incase of a cyclic graph.
+     The difference is that in a graph depth-first search we have to check if a node has **already been visited** to avoid infinite cycles incase of a cyclic graph.
