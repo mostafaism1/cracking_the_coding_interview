@@ -57,9 +57,9 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
         }
     }
 
-    private int getMinChildIndex(int itemIndex) {
-        int leftChildIndex = getLeftChildIndex(itemIndex);
-        int rightChildIndex = getRightChildIndex(itemIndex);
+    private int getMinChildIndex(int index) {
+        int leftChildIndex = getLeftChildIndex(index);
+        int rightChildIndex = getRightChildIndex(index);
         if (leftChildIndex > tree.size() - 1) {
             return -1;
         }
