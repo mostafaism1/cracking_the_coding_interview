@@ -13,9 +13,27 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
 
     @Override
     public void insert(E item) {
-        // Maintain the shape property.
+        // Maintain the shape property by adding at the end.
         tree.add(item);
         // Fix the heap property by bubbling up.
+        bubbleUp();
+    }
+
+    @Override
+    public E extractMin() {
+        if (tree.size() == 0) {
+            return null;
+        }
+        // Maintain the shape property by swapping the root with the last element.
+        E min = extractRoot();
+        // Fix the heap property by bubbling down.
+        bubbleDown();
+        return min;
+    }
+
+    // Helper methods.
+
+    private void bubbleUp() {
         int itemIndex = tree.size() - 1;
         while (!isRoot(itemIndex)) {
             int parentIndex = getParentIndex(itemIndex);
@@ -27,27 +45,17 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
         }
     }
 
-    @Override
-    public E extractMin() {
-        if (tree.size() == 0) {
-            return null;
-        }
-        // Maintain the shape property.
-        E min = extractRoot();
-        // Fix the heap property by bubbling down.
-        int elementIndex = 0;
-        while (elementIndex < tree.size() - 1) {
-            int minChildIndex = getMinChildIndex(elementIndex);
-            if (minChildIndex == -1 || !isSmaller(minChildIndex, elementIndex)) {
+    private void bubbleDown() {
+        int itemIndex = 0;
+        while (itemIndex < tree.size() - 1) {
+            int minChildIndex = getMinChildIndex(itemIndex);
+            if (minChildIndex == -1 || !isSmaller(minChildIndex, itemIndex)) {
                 break;
             }
-            swap(elementIndex, minChildIndex);
-            elementIndex = minChildIndex;
+            swap(itemIndex, minChildIndex);
+            itemIndex = minChildIndex;
         }
-        return min;
     }
-
-    // Helper methods.
 
     private int getMinChildIndex(int elementIndex) {
         int leftChildIndex = getLeftChildIndex(elementIndex);
@@ -65,6 +73,21 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
         return (itemIndex - 1) / 2;
     }
 
+    private int getLeftChildIndex(int elementIndex) {
+        return 2 * elementIndex + 1;
+    }
+
+    private int getRightChildIndex(int elementIndex) {
+        return 2 * elementIndex + 2;
+    }
+
+    private E extractRoot() {
+        E min = tree.get(0);
+        tree.set(0, tree.get(tree.size() - 1));
+        tree.remove(tree.size() - 1);
+        return min;
+    }
+
     private boolean isRoot(int index) {
         return index == 0;
     }
@@ -77,21 +100,6 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
         E temp = tree.get(index2);
         tree.set(index2, tree.get(index1));
         tree.set(index1, temp);
-    }
-
-    private int getRightChildIndex(int elementIndex) {
-        return 2 * elementIndex + 2;
-    }
-
-    private int getLeftChildIndex(int elementIndex) {
-        return 2 * elementIndex + 1;
-    }
-
-    private E extractRoot() {
-        E min = tree.get(0);
-        tree.set(0, tree.get(tree.size() - 1));
-        tree.remove(tree.size() - 1);
-        return min;
     }
 
 }
