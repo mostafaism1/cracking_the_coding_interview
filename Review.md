@@ -45,8 +45,19 @@
 
 2. Representation
 
-   - Since you can reach all nodes from the root node, all you need is a TreeNode.
-   - You do **not** need a Tree class that wraps the root node, it doesn't add any value or clarity.
+   1. Linked representation
+      - Since you can reach all nodes from the root node, all you need is a TreeNode.
+      - You do **not** need a Tree class that wraps the root node, it doesn't add any value or clarity.
+   2. Sequential representation (i.e. Array/List).
+
+      - The relationship between the nodes (i.e. parent and left/right children) is determined **implicitly** by their positions in the array.
+      - Assume we have n nodes (0 — n-1), to find its parent and left and right children of the node at `index = i`:
+
+        - `parent index = (i - 1) / 2`
+        - `left child index = (2 * i) + 1`
+        - `right child index = (2 * i) + 2`
+
+      - Note: The sequential representation is most often used with the **Binary Heap** representation of a **Heap** data structure.
 
 3. **Binary** Tree Traversal techniques.
 
@@ -63,10 +74,16 @@
 
      - A min-heap has **2** properties:
 
-       1. A complete binary tree (that is, totally filled other than the rightmost elements on the last level).
-       2. **each node is smaller than its children**.
+       1. Shape property
+
+          - A complete binary **tree** (that is, totally filled other than the rightmost elements on the last level).
+
+       2. Heap property
+          - **each node is smaller than its children**.
 
      - The **root**, therefore, is the **minimum** element in the tree.
+     - Remember, a Heap is a **TREE**.
+     - Remember, a Heap and a **Binary** Heap are the **same** thing, because a Heap must be a binary tree.
 
      - The way I like to think about Min/Max Heaps is by comparing them to Binary **Search** trees, and the difference is the following:
      - In Min/Max Heaps there's no relation/ordering between the values of **left and right subtree** nodes, the relation is only between a given subtree and its parent.
