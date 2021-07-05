@@ -57,9 +57,9 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
         }
     }
 
-    private int getMinChildIndex(int elementIndex) {
-        int leftChildIndex = getLeftChildIndex(elementIndex);
-        int rightChildIndex = getRightChildIndex(elementIndex);
+    private int getMinChildIndex(int itemIndex) {
+        int leftChildIndex = getLeftChildIndex(itemIndex);
+        int rightChildIndex = getRightChildIndex(itemIndex);
         if (leftChildIndex > tree.size() - 1) {
             return -1;
         }
@@ -69,16 +69,16 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
         return isSmaller(leftChildIndex, rightChildIndex) ? leftChildIndex : rightChildIndex;
     }
 
-    private int getParentIndex(int itemIndex) {
-        return (itemIndex - 1) / 2;
+    private int getParentIndex(int index) {
+        return (index - 1) / 2;
     }
 
-    private int getLeftChildIndex(int elementIndex) {
-        return 2 * elementIndex + 1;
+    private int getLeftChildIndex(int index) {
+        return 2 * index + 1;
     }
 
-    private int getRightChildIndex(int elementIndex) {
-        return 2 * elementIndex + 2;
+    private int getRightChildIndex(int index) {
+        return 2 * index + 2;
     }
 
     private E extractRoot() {
@@ -92,8 +92,8 @@ public class DefaultMinHeap<E extends Comparable<E>> implements MinHeap<E> {
         return index == 0;
     }
 
-    private boolean isSmaller(int itemIndex, int parentIndex) {
-        return tree.get(itemIndex).compareTo(tree.get(parentIndex)) < 0;
+    private boolean isSmaller(int index1, int index2) {
+        return tree.get(index1).compareTo(tree.get(index2)) < 0;
     }
 
     private void swap(int index1, int index2) {
