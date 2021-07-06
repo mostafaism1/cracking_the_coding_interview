@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.mostafaism.problemsolving.datastructure.Graph.GraphNode;
 
-public interface DepthFirstSearch<E> {
+public interface Search<E> {
     /**
      * Returns an Optional of a GraphNode with a value equal to the specified value
      * if the value exists, otherwise Optional.empty.

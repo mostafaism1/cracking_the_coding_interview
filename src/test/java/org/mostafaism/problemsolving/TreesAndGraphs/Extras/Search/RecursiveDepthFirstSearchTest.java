@@ -11,7 +11,7 @@ import org.mostafaism.problemsolving.datastructure.Graph.GraphNode;
 
 public class RecursiveDepthFirstSearchTest {
 
-    private DepthFirstSearch<Integer> depthFirstSearch;
+    private Search<Integer> depthFirstSearch;
     GraphNode<Integer> startNode;
     GraphNode<Integer> adjacentNode;
     GraphNode<Integer> adjacentNode0;

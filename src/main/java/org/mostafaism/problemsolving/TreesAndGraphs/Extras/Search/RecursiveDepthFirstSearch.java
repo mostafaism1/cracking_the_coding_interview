@@ -6,7 +6,7 @@ import java.util.Set;
 
 import org.mostafaism.problemsolving.datastructure.Graph.GraphNode;
 
-public class RecursiveDepthFirstSearch<E> implements DepthFirstSearch<E> {
+public class RecursiveDepthFirstSearch<E> implements Search<E> {
 
     @Override
     public Optional<GraphNode<E>> search(GraphNode<E> startNode, E value) {
@@ -35,6 +35,6 @@ public class RecursiveDepthFirstSearch<E> implements DepthFirstSearch<E> {
             }
         }
         return result;
-    }    
+    }
 
 }
