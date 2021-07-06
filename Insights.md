@@ -82,3 +82,6 @@
 
     1. **Searching** is more complicated.
     2. Worst and Average case time **may vary widely**, and we **must** evaluate **both** aspects for any algorithm.
+
+16. Whenever you have 2 variables of the same **reference** type and the 2 variables are pointing to the same object initially, then changing one of those variables (i.e. re-pointing it to another object) **DOES NOT** change (i.e. re-point) the other one.
+    - This one might seem obvious, but you will get it wrong surprisingly often, so let this be a reminder :).
