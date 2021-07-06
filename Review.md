@@ -121,8 +121,12 @@
      - Ex: storing the entire English language for quick **prefix** lookup.
 
    - Runtime analysis:
+
      - O(K), where K is the length of the string/prefix.
      - Note: This is the **same** runtime as a HashTable, although we say that a HashTable is O(1), this is not entirely true, it's O(K), because it must read through all the characters of the input. (A HashTable being O(1), is only true if we assume the string length K is always less than an upper bound constant K < C)
+
+   - Note: A **Radix Tree / Radix Trie / Compact Prefix Tree** is one type of implementation for a Trie datastructure which is **space-optimized**.
+     It achieves this space optimization by **coalescing/merging** each node that is the only child with its parent.
 
 ### Graphs
 
