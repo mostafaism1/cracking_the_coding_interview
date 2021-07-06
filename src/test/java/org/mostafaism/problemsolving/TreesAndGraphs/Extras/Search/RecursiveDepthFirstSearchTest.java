@@ -1,4 +1,4 @@
-package org.mostafaism.problemsolving.TreesAndGraphs.Extras.DepthFirstSearch;
+package org.mostafaism.problemsolving.TreesAndGraphs.Extras.Search;
 
 import static org.assertj.core.api.BDDAssertions.then;
 

@@ -1,4 +1,4 @@
-package org.mostafaism.problemsolving.TreesAndGraphs.Extras.DepthFirstSearch;
+package org.mostafaism.problemsolving.TreesAndGraphs.Extras.Search;
 
 import java.util.HashSet;
 import java.util.Optional;
