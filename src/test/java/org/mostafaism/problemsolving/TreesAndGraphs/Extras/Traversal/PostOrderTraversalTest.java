@@ -1,4 +1,4 @@
-package org.mostafaism.problemsolving.TreesAndGraphs.Extras;
+package org.mostafaism.problemsolving.TreesAndGraphs.Extras.Traversal;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -8,13 +8,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mostafaism.problemsolving.datastructure.Tree.BinaryTreeNode;
 
-public class InOrderTraversalTest {
-
-    private InOrderTraversal<Integer> inOrderTraversal;
+public class PostOrderTraversalTest {
+    private PostOrderTraversal<Integer> postOrderTraversal;
 
     @BeforeEach
     void setup() {
-        inOrderTraversal = new InOrderTraversal<>();
+        postOrderTraversal = new PostOrderTraversal<>();
     }
 
     @Test
@@ -23,7 +22,7 @@ public class InOrderTraversalTest {
         BinaryTreeNode<Integer> root = null;
 
         // When.
-        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
+        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
 
         // Then.
         then(actual.size()).isZero();
@@ -36,7 +35,7 @@ public class InOrderTraversalTest {
         Integer expected = 0;
 
         // When.
-        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
+        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
 
         // Then.
         then(actual.size()).isOne();
@@ -51,7 +50,7 @@ public class InOrderTraversalTest {
         Integer expected1 = 1;
 
         // When.
-        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
+        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(2);
@@ -65,11 +64,11 @@ public class InOrderTraversalTest {
         BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(1, new BinaryTreeNode<>(0, null, null),
                 new BinaryTreeNode<>(2, null, null));
         Integer expected0 = 0;
-        Integer expected1 = 1;
-        Integer expected2 = 2;
+        Integer expected1 = 2;
+        Integer expected2 = 1;
 
         // When.
-        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
+        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(3);
@@ -88,7 +87,7 @@ public class InOrderTraversalTest {
         Integer expected2 = 2;
 
         // When.
-        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
+        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(3);
@@ -96,5 +95,4 @@ public class InOrderTraversalTest {
         then(actual.get(1)).isEqualTo(expected1);
         then(actual.get(2)).isEqualTo(expected2);
     }
-
 }

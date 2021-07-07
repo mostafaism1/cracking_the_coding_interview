@@ -1,4 +1,4 @@
-package org.mostafaism.problemsolving.TreesAndGraphs.Extras;
+package org.mostafaism.problemsolving.TreesAndGraphs.Extras.Traversal;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -8,12 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mostafaism.problemsolving.datastructure.Tree.BinaryTreeNode;
 
-public class PreOrderTraversalTest {
-    private PreOrderTraversal<Integer> preOrderTraversal;
+public class InOrderTraversalTest {
+
+    private InOrderTraversal<Integer> inOrderTraversal;
 
     @BeforeEach
     void setup() {
-        preOrderTraversal = new PreOrderTraversal<>();
+        inOrderTraversal = new InOrderTraversal<>();
     }
 
     @Test
@@ -22,7 +23,7 @@ public class PreOrderTraversalTest {
         BinaryTreeNode<Integer> root = null;
 
         // When.
-        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
+        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
 
         // Then.
         then(actual.size()).isZero();
@@ -35,7 +36,7 @@ public class PreOrderTraversalTest {
         Integer expected = 0;
 
         // When.
-        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
+        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
 
         // Then.
         then(actual.size()).isOne();
@@ -46,11 +47,11 @@ public class PreOrderTraversalTest {
     void shouldReturnTheNodesInProperOrder_givenATreeWithTwoNodes() {
         // Given.
         BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(1, new BinaryTreeNode<>(0, null, null), null);
-        Integer expected0 = 1;
-        Integer expected1 = 0;
+        Integer expected0 = 0;
+        Integer expected1 = 1;
 
         // When.
-        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
+        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(2);
@@ -63,12 +64,12 @@ public class PreOrderTraversalTest {
         // Given.
         BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(1, new BinaryTreeNode<>(0, null, null),
                 new BinaryTreeNode<>(2, null, null));
-        Integer expected0 = 1;
-        Integer expected1 = 0;
+        Integer expected0 = 0;
+        Integer expected1 = 1;
         Integer expected2 = 2;
 
         // When.
-        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
+        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(3);
@@ -82,12 +83,12 @@ public class PreOrderTraversalTest {
         // Given.
         BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(2,
                 new BinaryTreeNode<>(1, new BinaryTreeNode<>(0, null, null), null), null);
-        Integer expected0 = 2;
+        Integer expected0 = 0;
         Integer expected1 = 1;
-        Integer expected2 = 0;
+        Integer expected2 = 2;
 
         // When.
-        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
+        List<Integer> actual = inOrderTraversal.inOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(3);

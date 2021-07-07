@@ -1,4 +1,4 @@
-package org.mostafaism.problemsolving.TreesAndGraphs.Extras;
+package org.mostafaism.problemsolving.TreesAndGraphs.Extras.Traversal;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -8,12 +8,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mostafaism.problemsolving.datastructure.Tree.BinaryTreeNode;
 
-public class PostOrderTraversalTest {
-    private PostOrderTraversal<Integer> postOrderTraversal;
+public class PreOrderTraversalTest {
+    private PreOrderTraversal<Integer> preOrderTraversal;
 
     @BeforeEach
     void setup() {
-        postOrderTraversal = new PostOrderTraversal<>();
+        preOrderTraversal = new PreOrderTraversal<>();
     }
 
     @Test
@@ -22,7 +22,7 @@ public class PostOrderTraversalTest {
         BinaryTreeNode<Integer> root = null;
 
         // When.
-        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
+        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
 
         // Then.
         then(actual.size()).isZero();
@@ -35,7 +35,7 @@ public class PostOrderTraversalTest {
         Integer expected = 0;
 
         // When.
-        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
+        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
 
         // Then.
         then(actual.size()).isOne();
@@ -46,11 +46,11 @@ public class PostOrderTraversalTest {
     void shouldReturnTheNodesInProperOrder_givenATreeWithTwoNodes() {
         // Given.
         BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(1, new BinaryTreeNode<>(0, null, null), null);
-        Integer expected0 = 0;
-        Integer expected1 = 1;
+        Integer expected0 = 1;
+        Integer expected1 = 0;
 
         // When.
-        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
+        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(2);
@@ -63,12 +63,12 @@ public class PostOrderTraversalTest {
         // Given.
         BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(1, new BinaryTreeNode<>(0, null, null),
                 new BinaryTreeNode<>(2, null, null));
-        Integer expected0 = 0;
-        Integer expected1 = 2;
-        Integer expected2 = 1;
+        Integer expected0 = 1;
+        Integer expected1 = 0;
+        Integer expected2 = 2;
 
         // When.
-        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
+        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(3);
@@ -82,12 +82,12 @@ public class PostOrderTraversalTest {
         // Given.
         BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(2,
                 new BinaryTreeNode<>(1, new BinaryTreeNode<>(0, null, null), null), null);
-        Integer expected0 = 0;
+        Integer expected0 = 2;
         Integer expected1 = 1;
-        Integer expected2 = 2;
+        Integer expected2 = 0;
 
         // When.
-        List<Integer> actual = postOrderTraversal.postOrderTraversal(root);
+        List<Integer> actual = preOrderTraversal.preOrderTraversal(root);
 
         // Then.
         then(actual.size()).isEqualTo(3);
@@ -95,4 +95,5 @@ public class PostOrderTraversalTest {
         then(actual.get(1)).isEqualTo(expected1);
         then(actual.get(2)).isEqualTo(expected2);
     }
+
 }
