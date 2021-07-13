@@ -18,6 +18,9 @@ public class BreadthFirstSearch<E> implements Search<E> {
         GraphNode<E> result = null;
         Set<GraphNode<E>> visitedNodes = new HashSet<>();
         Queue<GraphNode<E>> queue = new DefaultQueue<>();
+        // Note:
+        // A node is marked as visited just before it is enqueued.
+        // A node's value is checked when it is dequeued.
         visitedNodes.add(startNode);
         queue.add(startNode);
         while (!queue.isEmpty()) {
