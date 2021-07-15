@@ -4,6 +4,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 import org.mostafaism.problemsolving.datastructure.Graph.GraphNode;
@@ -11,6 +12,7 @@ import org.mostafaism.problemsolving.datastructure.Graph.GraphNode;
 public abstract class SearchTest {
 
     protected Search<Integer> search;
+    private Predicate<GraphNode<Integer>> isFound;
     private GraphNode<Integer> startNode;
     private GraphNode<Integer> adjacentNode;
     private GraphNode<Integer> adjacentNode0;
@@ -25,9 +27,10 @@ public abstract class SearchTest {
     void givenANullStartNode_whenSearching_thenWillReturnAnEmptyOptional() {
         // Given.
         startNode = null;
+        isFound = n -> n.data() == 0;
 
         // When.
-        Optional<GraphNode<Integer>> actual = search.search(startNode, 0);
+        Optional<GraphNode<Integer>> actual = search.search(startNode, isFound);
 
         // Then.
         then(actual.isEmpty()).isTrue();
@@ -39,9 +42,10 @@ public abstract class SearchTest {
         value = 0;
         otherValue = 1;
         startNode = new GraphNode<Integer>(value);
+        isFound = n -> n.data() == otherValue;
 
         // When.
-        Optional<GraphNode<Integer>> actual = search.search(startNode, otherValue);
+        Optional<GraphNode<Integer>> actual = search.search(startNode, isFound);
 
         // Then.
         then(actual.isEmpty()).isTrue();
@@ -52,9 +56,10 @@ public abstract class SearchTest {
         // Given.
         value = 0;
         startNode = new GraphNode<Integer>(value);
+        isFound = n -> n.data() == value;
 
         // When.
-        Optional<GraphNode<Integer>> actual = search.search(startNode, value);
+        Optional<GraphNode<Integer>> actual = search.search(startNode, isFound);
 
         // Then.
         then(actual.isPresent()).isTrue();
@@ -67,9 +72,10 @@ public abstract class SearchTest {
         value = 0;
         otherValue = 1;
         startNode = new GraphNode<Integer>(value);
+        isFound = n -> n.data() == otherValue;
 
         // When.
-        Optional<GraphNode<Integer>> actual = search.search(startNode, otherValue);
+        Optional<GraphNode<Integer>> actual = search.search(startNode, isFound);
 
         // Then.
         then(actual.isEmpty()).isTrue();
@@ -82,9 +88,10 @@ public abstract class SearchTest {
         value1 = 1;
         adjacentNode = new GraphNode<Integer>(value1);
         startNode = new GraphNode<Integer>(value0, List.of(adjacentNode));
+        isFound = n -> n.data() == value0;
 
         // When.
-        Optional<GraphNode<Integer>> actual = search.search(startNode, value0);
+        Optional<GraphNode<Integer>> actual = search.search(startNode, isFound);
 
         // Then.
         then(actual.isPresent()).isTrue();
@@ -98,9 +105,10 @@ public abstract class SearchTest {
         value1 = 1;
         adjacentNode = new GraphNode<Integer>(value1);
         startNode = new GraphNode<Integer>(value0, List.of(adjacentNode));
+        isFound = n -> n.data() == value1;
 
         // When.
-        Optional<GraphNode<Integer>> actual = search.search(startNode, value1);
+        Optional<GraphNode<Integer>> actual = search.search(startNode, isFound);
 
         // Then.
         then(actual.isPresent()).isTrue();
@@ -116,9 +124,10 @@ public abstract class SearchTest {
         adjacentNode0 = new GraphNode<Integer>(value1);
         adjacentNode1 = new GraphNode<Integer>(value2);
         startNode = new GraphNode<Integer>(value0, List.of(adjacentNode0, adjacentNode1));
+        isFound = n -> n.data() == value2;
 
         // When.
-        Optional<GraphNode<Integer>> actual = search.search(startNode, value2);
+        Optional<GraphNode<Integer>> actual = search.search(startNode, isFound);
 
         // Then.
         then(actual.isPresent()).isTrue();
