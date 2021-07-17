@@ -12,10 +12,9 @@
 
     2. Create a **helper** function, with 2 additional parameters, **low** and **high**.
 
-    3. Base cases:
+    3. Base case:
 
-       1. high < low ---> return an empty BinaryTreeNode / null
-       2. high = low ---> return a BinaryTreeNode with its data equal to that element.
+       - high < low ---> return an empty BinaryTreeNode / null
 
     4. Recursive step:
        - return a BinaryTreeNode with:

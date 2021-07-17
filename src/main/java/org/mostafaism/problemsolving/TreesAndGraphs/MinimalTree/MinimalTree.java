@@ -17,12 +17,9 @@ public class MinimalTree {
     }
 
     private BinaryTreeNode<Integer> minimalTreeHelper(int[] numbers, int low, int high) {
-        // Base cases.
+        // Base case.
         if (low > high) {
             return null;
-        }
-        if (low == high) {
-            return new BinaryTreeNode<Integer>(numbers[low], null, null);
         }
 
         // Recursive step.
