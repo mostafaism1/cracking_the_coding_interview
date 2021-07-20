@@ -39,4 +39,7 @@
 
 - ### Notes
 
-  -
+  - Instead of designing our helper function to return a custom class with the **3** values, **isBst**, **min**, and **max**, we can instead return a single value **isBst** and take the **max** and **min** ranges as inputs which our node's value must fall between.
+    The book's solution uses this approach.
+
+  - The book proposes another solution which uses in-order traversal to perform the validation, however, this algorithm requires that the tree's values be unique.
