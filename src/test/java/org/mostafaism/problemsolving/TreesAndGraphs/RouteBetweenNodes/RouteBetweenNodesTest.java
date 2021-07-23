@@ -2,7 +2,6 @@ package org.mostafaism.problemsolving.TreesAndGraphs.RouteBetweenNodes;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
-import java.util.List;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -49,7 +48,7 @@ public class RouteBetweenNodesTest {
         // Given.
         source = new GraphNode<>(value);
         destination = new GraphNode<>(value);
-        graph = new Graph<>(List.of(source, destination));
+        graph = new Graph<>(Set.of(source, destination));
 
         // When.
         boolean actual = routeBetweenNodes.routeBetweenNodes(graph, source, destination);
@@ -68,7 +67,7 @@ public class RouteBetweenNodesTest {
         extraNode = new GraphNode<>(value);
         destination = new GraphNode<>(value, Set.of(extraNode));
         source = new GraphNode<>(value, Set.of(destination, extraNode));
-        graph = new Graph<>(List.of(source, destination));
+        graph = new Graph<>(Set.of(source, destination));
 
         // When.
         boolean actual = routeBetweenNodes.routeBetweenNodes(graph, source, destination);
