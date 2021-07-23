@@ -30,7 +30,7 @@ public class BreadthFirstSearch<E> implements Search<E> {
                 result = node;
                 break;
             }
-            for (GraphNode<E> adjacent : node.adjacents()) {
+            for (GraphNode<E> adjacent : node.getAdjacents()) {
                 if (!visitedNodes.contains(adjacent)) {
                     visitedNodes.add(adjacent);
                     queue.add(adjacent);

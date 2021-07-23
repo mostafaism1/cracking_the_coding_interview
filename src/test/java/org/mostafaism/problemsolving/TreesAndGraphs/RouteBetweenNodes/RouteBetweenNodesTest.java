@@ -3,6 +3,7 @@ package org.mostafaism.problemsolving.TreesAndGraphs.RouteBetweenNodes;
 import static org.assertj.core.api.BDDAssertions.then;
 
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -65,8 +66,8 @@ public class RouteBetweenNodesTest {
     void givenAGraphOfSizeThreeAndAPathFromSourceToDestination_thenWillReturnTrue() {
         // Given.
         extraNode = new GraphNode<>(value);
-        destination = new GraphNode<>(value, List.of(extraNode));
-        source = new GraphNode<>(value, List.of(destination, extraNode));
+        destination = new GraphNode<>(value, Set.of(extraNode));
+        source = new GraphNode<>(value, Set.of(destination, extraNode));
         graph = new Graph<>(List.of(source, destination));
 
         // When.

@@ -28,7 +28,7 @@ public class RecursiveDepthFirstSearch<E> implements Search<E> {
         // Recursive step.
         GraphNode<E> result = null;
         visitedNodes.add(root);
-        for (GraphNode<E> node : root.adjacents()) {
+        for (GraphNode<E> node : root.getAdjacents()) {
             if (!visitedNodes.contains(node)) {
                 result = searchHelper(node, isFound, visitedNodes);
                 if (result != null) {
