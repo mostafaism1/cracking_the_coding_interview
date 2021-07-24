@@ -88,3 +88,12 @@
     - This one might seem obvious, but you will get it wrong surprisingly often, so let this be a reminder :).
 
 17. Replace any `Map<T, Boolean>` with a `Set<T>`.
+
+18. Use a `Set` instead of a `List` whenever these **2** conditions are met:
+
+    1. The **Order** of elements is un-important.
+    2. **Duplicate** elements are dis-allowed.
+
+19. Do create **abstractions** that are meaningful at the problem's domain level, instead of relying on the language's low level structures/types (int/String/List/Set/etc.), create your own structures and abstractions.
+
+Note: You can think of this as **embedding** the problem's domain language inside the programming language of your choice, leading to a **DSL** that is at an **appropriate level** for the problem.
