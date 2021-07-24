@@ -28,4 +28,8 @@ public class GraphNode<E> {
         // Create a defensive copy.
         return new HashSet<>(adjacents);
     }
+
+    public boolean isLeaf() {
+        return adjacents.isEmpty();
+    }
 }
