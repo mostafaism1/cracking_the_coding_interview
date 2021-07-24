@@ -33,4 +33,8 @@ public class TreeNode<E> {
         return new ArrayList<>(children);
     }
 
+    public boolean isLeaf() {
+        return children.isEmpty();
+    }
+
 }
