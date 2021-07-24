@@ -52,4 +52,8 @@
 
 - ### Notes
 
-  -
+  - The name for this problem is called **togological sort**.
+  - The book provides **2** solutions:
+    1. using BFS
+    2. using DFS
+  - You should check the book's solutions as it goes into more depth and explains the algorithms more clearly.
