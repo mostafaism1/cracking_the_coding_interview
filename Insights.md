@@ -97,3 +97,14 @@
 19. Do create **abstractions** that are meaningful at the problem's domain level, instead of relying on the language's low level structures/types (int/String/List/Set/etc.), create your own structures and abstractions.
 
 Note: You can think of this as **embedding** the problem's domain language inside the programming language of your choice, leading to a **DSL** that is at an **appropriate level** for the problem.
+
+20. When testing a method, document your testing strategy, and include the following:
+
+    1. Testing strategy:
+       1. Input space partitions
+       2. Type of coverage of the partitions' sub-domains:
+          1. Cross product
+          2. sub-domains
+    2. Comment each test case to indicate which sub-domain of each partition it covers.
+
+21. Related to the previous point, partitioning the input space when testing a method, leads to better test cases and better coverage.
