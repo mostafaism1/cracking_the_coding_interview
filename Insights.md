@@ -108,3 +108,5 @@ Note: You can think of this as **embedding** the problem's domain language insid
     2. Comment each test case to indicate which sub-domain of each partition it covers.
 
 21. Related to the previous point, partitioning the input space when testing a method, leads to better test cases and better coverage.
+
+22. To come up with a **recursive** solution, you have to employ **wishful** thinking, which basically means to use **inductive reasoning** and to divide the solution into a **base case** and a **recursive step**.
