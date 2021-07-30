@@ -110,3 +110,20 @@ Note: You can think of this as **embedding** the problem's domain language insid
 21. Related to the previous point, partitioning the input space when testing a method, leads to better test cases and better coverage.
 
 22. To come up with a **recursive** solution, you have to employ **wishful** thinking, which basically means to use **inductive reasoning** and to divide the solution into a **base case** and a **recursive step**.
+
+23. Many algorithms require that you create a frequancy map, use `Collections.frequancy(Collection<?> c, Object o)` to simplify the frequancy calculation.
+
+24. Use `List.copyOf​(Collection<? extends E> coll)` instead of `new ArrayList<>(oldList)` whenever you want to create a new copy of a list from another list (or any other collection).
+
+25. Immutability can make your life alot easier, specially when designing recursive functions.
+    Unfortunately, most Java data structures are not immutable, and you will have to manually create a copy of your data structure whenever you want to mutate it, a good option is to use a **persistent data structure** library, such as **pcollections**.
+
+26. In a fori loop, sometimes you want to perform an operation on `i-1`, at the begining of the loop's body, this can be refactored to a better design by moving the operation at the end of the loop's body and replacing `i-1` with `i`.
+
+    - This practise is better, not only because it is clearer, but also because it eliminates the guard condition that `i - 1 > 0`.
+
+27. A good technique for debugging, is **root-cause analysis**, which basically lets you zoom in into the specific cause for a problem.
+
+28. Use static typing to its fullest, so that your code becomes clear and self documenting, ex:
+    - Use the most specific type possible (see point 18).
+    - Declare variables/method parameters as `final` (i.e. **immutable**) whenver possible.
