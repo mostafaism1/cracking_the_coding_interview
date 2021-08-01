@@ -9,20 +9,36 @@
 
   - #### Steps
 
-    1. A recursive algorithm will work best here.
+    1.  A recursive algorithm will work best here.
 
-       - Why?
-       - Because a tree is a **recursive data structure**, and it is usually the case that the most clear and expressive way to write an algorithm on a recursive data structure is by using a **recursive algorithm**.
+        - Why?
+        - Because a tree is a **recursive data structure**, and it is usually the case that the most clear and expressive way to write an algorithm on a recursive data structure is a **recursive algorithm**.
 
-    2. Assume that the 2 nodes are guaranteed to exist in the tree.
+    2.  Recursive function's signature:
 
-    3. Base cases:
+        - `<E> PartialResult<E> firstCommonAncestorHelper(BinaryTreeNode<E> root, BinaryTreeNode<E> node1, BinaryTreeNode<E> node2)`
 
-       1. node = node1 or node == node2 ---> return node.
-       2. if node is leaf ---> return empty-node/null.
+        - where PartialResult is a container class for the following fields:
 
-    4. Recursive step:
-       - Recursively call the function on the left child, return the result if it is not null, otherwise recursively call the function on the right child and return its result.
+          - ```java
+              private static class PartialResult<E> {
+                private boolean containsNode1;
+                private boolean containsNode2;
+                private BinaryTreeNode<E> firstCommonAncestor;
+              }
+            ```
+
+    3.  Base cases:
+
+        1. root is empty/null ---> return PartialResult(false, false, null).
+
+    4.  Recursive step:
+        1. Recursively call the function on the left child, if its result's firstCommonAncestr is not null, then return the left child result.
+        2. Recursively call the function on the right child, if its result's firstCommonAncestr is not null, then return the right child result.
+        3. If the root is the first common ancestor, `return PartialResult(true, true, root)`
+        4. If the root is node1, `return PartialResult(true, false, null)`
+        5. If the root is node2, `return PartialResult(false, true, null)`
+        6. Otherwise, `return PartialResult(false, false, null)`
 
   - #### Analysis
 
