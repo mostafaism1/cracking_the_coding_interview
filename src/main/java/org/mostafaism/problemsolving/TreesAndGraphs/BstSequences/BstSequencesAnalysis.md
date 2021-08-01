@@ -47,3 +47,11 @@
     Using a persistent collection data structure has an **amortized** time and space complexity of O(1).
     I found a library called [pcollections](https://www.javadoc.io/doc/org.pcollections/pcollections/latest/index.html),
     however, I ended up not using it because I had already implemented the solution using the standard Java Collections, and wanted to move on to the next problem.
+
+  - The book's author says in this problem's solution that many people struggle with this problem, and the reason for that is that this problem requires 2 different recursive algorithms, and that its difficult to keep both algorithms straight in your head.
+    She then goes on to give an advice on how to deal with this complexity, and the advice being: **Trust and Focus**.
+
+    - Trust: When you are working with one algorithm that makes use of another algorithm, trust/assume that the other algorithm works properly.
+    - Focus: If you **trust** that all other independent algorithms are working properly, then this lets you **focus** on the current algorithm at hand.
+
+  - The book does not provide a time and/or space analysis for this problem. (Which is an indication that the analysis is quite involved)
