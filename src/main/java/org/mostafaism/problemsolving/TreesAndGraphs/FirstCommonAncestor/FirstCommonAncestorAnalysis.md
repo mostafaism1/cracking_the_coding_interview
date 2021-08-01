@@ -49,6 +49,9 @@
     - Space
       - O(H)
 
-- ### Notes
+- ### Notes (from the book's solution)
 
-  -
+  - If the nodes contain a reference to their parents, then we do the following:
+    1.  Find the depth of both nodes.
+    2.  Traverse from the deeper node upward, until its at the same depth as the less deep node.
+    3.  Traverse upward on both nodes together, the first common ancestor is the first equal node they hit.
