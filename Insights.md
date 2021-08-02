@@ -125,5 +125,17 @@ Note: You can think of this as **embedding** the problem's domain language insid
 27. A good technique for debugging, is **root-cause analysis**, which basically lets you zoom in into the specific cause for a problem.
 
 28. Use static typing to its fullest, so that your code becomes clear and self documenting, ex:
+
     - Use the most specific type possible (see point 18).
     - Declare variables/method parameters as `final` (i.e. **immutable**) whenver possible.
+
+29. Prefer if, else if, else to a sequence of ifs for a set of **mutually exclusive** conditions; This is because the if, else if, else are:
+
+    1. **Self documenting** the mutual exclusion property.
+    2. **Self documenting** the **relative order** of the conditions.
+    3. A single logical unit that can be interpreted to perform a more abstrat functionality than the individual conditions that compose it. (i.e. The total is greater than the sum of its parts.)
+
+30. Prefer writing methods that contain no blank lines; If you need to divide the method into multiple logical units with blank lines in-between, then the method is probably too long, and handles multiple responsibilities, in which case you should think about a redesign/refactoring.
+
+31. Prefer **independent** partitions when partitioning the input space for a method.
+    - When partitioning the input space for a method (for the purpose of unit testing), if one partition is **dependent** on another partition, remove one of the two partitions.
