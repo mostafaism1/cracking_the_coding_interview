@@ -137,5 +137,37 @@ Note: You can think of this as **embedding** the problem's domain language insid
 
 30. Prefer writing methods that contain no blank lines; If you need to divide the method into multiple logical units with blank lines in-between, then the method is probably too long, and handles multiple responsibilities, in which case you should think about a redesign/refactoring.
 
+    - In fact, Uncle Bob talks about this in his series clean coders episode 3, at 28:35, the gist of what he says is the following:
+      1. What is a **large** function?
+         > A large function is a **scope**, that scope is **divided** into different areas of functionalities, usually seen as major **indentations**. Those different sections communicate with each other using **variables** that are local to the entire scope.
+      2. What do you have when you have a set of variables in long scope, accessed by many different segments of functionality?
+         > A **class**. In fact, long function can almost always be refactored into one or more classes.
+
 31. Prefer **independent** partitions when partitioning the input space for a method.
+
     - When partitioning the input space for a method (for the purpose of unit testing), if one partition is **dependent** on another partition, remove one of the two partitions.
+
+32. Instead of using setters with a boolean return that indicates success/failure, prefer to design your setters with void return and optionally throwing an exception on failure.
+
+33. Prefer the **null object pattern** to nulls.
+
+    - Apply the **singleton pattern** along with the **null object pattern**.
+    - Provide a static factory method from the interface to get the singleton instance.
+
+34. Your first line of attack when solving a problem, is to design its **method's signature**, this lets you **parametrize** the problem in terms of inputs and output **types**.
+
+35. 2 very important design patterns for **recursive data types**, are the **composite pattern** and the **interpreter pattern**.
+    [Check this illuminating reading from MIT 6.031 Software Construction course, on the design of recursive data types](https://web.mit.edu/6.031/www/sp21/classes/16-recursive-data-types/)
+
+36. Why is OO useful?
+
+    - The most famous answer is that OO is useful because it is really good at **modeling** problems.
+    - Uncle Bob also adds the following amazing insight:
+      > OO is useful because it allows us to design programs where the **souce code dependencies** oppose the **flow of control**.
+      - This is useful because it allows us to **de-couple** our low level modules from our high level modules, therefore, we can change our one module without needing to re-compile or re-deploy the other module.
+      - OO achieves this through **polymorphism** (also called **polymorphic dispatch**).
+      - Polymorphism is implemented by having an abstract type (interface/abstract class), and one or more concrete implementations of that type.
+      - This is also called plugin architecture.
+      - An advantage of this plugin architecture, is independent devlopability of the application by different teams.
+
+37. Prefer command **query separation (CQS)**
