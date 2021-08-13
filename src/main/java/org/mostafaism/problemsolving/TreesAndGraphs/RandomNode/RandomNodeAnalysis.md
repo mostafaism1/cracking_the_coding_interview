@@ -48,4 +48,4 @@
 
 - ### Notes
 
-  -
+  - The solution for this problem is implemented in [src/main/java/org/mostafaism/problemsolving/datastructure/Tree/BinarySearchTree/BinarySearchTreeNode.java](src/main/java/org/mostafaism/problemsolving/datastructure/Tree/BinarySearchTree/BinarySearchTreeNode.java)
