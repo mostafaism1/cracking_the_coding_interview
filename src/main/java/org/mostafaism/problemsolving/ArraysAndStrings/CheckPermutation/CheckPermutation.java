@@ -38,7 +38,7 @@ public class CheckPermutation {
     }
 
     private boolean allZero(Map<Character, Integer> map) {
-        return map.values().stream().anyMatch(v -> v != 0) ? false : true;
+        return map.values().stream().allMatch(v -> v == 0) ? true : false;
     }
 
     // XXX Replace with an in-place sorting algorithm.
