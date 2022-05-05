@@ -50,9 +50,7 @@
 
 8. Use both **bounded type parameters** and **wildcard bounded type parameters** to make your APIs more flexible.
 
-   - This advice actually comes from **Joshua Bloch** and is discussed thoroughly in **item 31**.
-   - Bounded type parameters are useful becuase generic data types are **invariant**—instead of being **co-variant**.
-   - A useful mnemonic on when to use lower vs upper bounds is **PECS**: Producer-extends, consumer-super.
+   - This advice actually comes from **Joshua Bloch**.
 
 9. For recursive algorithms, information/data flows up the stack through input parameters, and down the stack through the return **value** (notice value is **singular**).
 
@@ -173,3 +171,5 @@ Note: You can think of this as **embedding** the problem's domain language insid
       - An advantage of this plugin architecture, is independent devlopability of the application by different teams.
 
 37. Prefer command **query separation (CQS)**
+
+38. Always seek to generalize your solutions; **Generics** are instrumental for achieving that goal.
