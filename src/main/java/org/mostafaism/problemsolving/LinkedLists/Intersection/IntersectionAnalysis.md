@@ -39,6 +39,23 @@
     - Space
       - O(1)
 
+- ### Solution 3 (Hashtable, non-optmal space)
+
+  - #### Steps
+
+    1. Add the elements of one of the lists to a Hashtable
+    2. Loop through the elements of the second list searching for its value in the Hashtable. 
+
+  - #### Analysis
+
+    - Time
+
+      - O(L1 + L2)
+
+    - Space
+      - O(max(L1, L2))
+
+
 - ### Notes
 
   - Before attempting this problem, I would ask the interviewer if I can assume that the 2 lists are **acyclic**.
