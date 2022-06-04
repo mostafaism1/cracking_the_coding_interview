@@ -173,3 +173,6 @@ Note: You can think of this as **embedding** the problem's domain language insid
 37. Prefer command **query separation (CQS)**
 
 38. Always seek to generalize your solutions; **Generics** are instrumental for achieving that goal.
+
+39. Gerald Jay Sussman on DRY (SICP Lec.2A 5:35):
+    > Whenever you see yourself writing the same thing down more than once, there is something wrong and you should not be doing it, not because it is a waste of time to write something more than once, but because there is some "idea" that can be expressed, generalized, and abstracted out.
