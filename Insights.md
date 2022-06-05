@@ -176,3 +176,6 @@ Note: You can think of this as **embedding** the problem's domain language insid
 
 39. Gerald Jay Sussman on DRY (SICP Lec.2A 5:35):
     > Whenever you see yourself writing the same thing down more than once, there is something wrong and you should not be doing it, not because it is a waste of time to write something more than once, but because there is some "idea" that can be expressed, generalized, and abstracted out.
+
+40. Gerald Jay Sussman on Wishful Thinking (SICP Lec.2A 50:35):
+    > I want you to see the process by which I write these things. I start out with some mathematical idea, perhaps. By wishful thinking, I assume that by some magic I can do something I have a name for. I am not going to worry about how I do it yet, but I am going to write my program anyway. Wishful thinking...essential to good engineering, and certainly essential to good computer science.
