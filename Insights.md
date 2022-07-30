@@ -179,3 +179,11 @@ Note: You can think of this as **embedding** the problem's domain language insid
 
 40. Gerald Jay Sussman on Wishful Thinking (SICP Lec.2A 50:35):
     > I want you to see the process by which I write these things. I start out with some mathematical idea, perhaps. By wishful thinking, I assume that by some magic I can do something I have a name for. I am not going to worry about how I do it yet, but I am going to write my program anyway. Wishful thinking...essential to good engineering, and certainly essential to good computer science.
+
+41. Always seek to minimize ceremony in your programs.
+
+    Definition: Ceremony in a programming language is the plumbing code that's not related to the business logic but, none the less, is required to get the program to compile and run.
+
+    Example: Java is considered a high ceremony language.
+
+    Elaboration: Ceremony is frowned upon because it conceals the business logic and makes it harder to understand.
