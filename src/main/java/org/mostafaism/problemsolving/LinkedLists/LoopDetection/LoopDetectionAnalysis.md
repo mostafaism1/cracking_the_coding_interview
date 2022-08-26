@@ -15,15 +15,16 @@
 
   - #### Steps
 
-    - I actually came up with only the first part of the solution (i.e. detect if a linked list contains a loop), but had to look up the second part (i.e. find the start node of the loop) from the book.
-
-    - The solution description is a bit lengthy, so I'll just give the gist of it, it's best to check the solution directly from book, on page 223.
+    - I actually came up with only the first part of the solution (i.e. detect if a linked list contains a loop), but had to look up the second part (i.e. find the start node of the loop) from the below stackoverflow answer:
+          - https://stackoverflow.com/a/3990650/9481968
 
     1. Use the runner technique with a slowRunner at a speed of 1 node/step and a fastRunner at a speed of 2 nodes/step.
     2. Iterate until they collide.
-    3. Reset the slowRunner to the head.
-    4. Iterate again until collision, but now with both runners at the same speed of 1 node/step.
-    5. The node of collision is the first node in the loop.
+    3. Calculate the length of the loop by freezing the fastRunner and moving the slowRunner until collision.
+    4. Reset both runners to the beginning of the list. 
+    5. Set the speed of both runners to 1 node/step. 
+    6. Advance only a single runner by the length of the loop, then start the other runner. 
+    7. The node of collision is the beginning of the loop. 
 
   - #### Analysis
 
@@ -36,4 +37,4 @@
 
 - ### Notes
 
-  -
+  - The solution given in the book is vague. The explanation on the shared stackoverflow answer is much better.
