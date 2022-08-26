@@ -15,8 +15,7 @@
 
   - #### Steps
 
-    - I actually came up with only the first part of the solution (i.e. detect if a linked list contains a loop), but had to look up the second part (i.e. find the start node of the loop) from the below stackoverflow answer:
-          - https://stackoverflow.com/a/3990650/9481968
+    - I actually came up with only the first part of the solution (i.e. detect if a linked list contains a loop), but had to look up the second part (i.e. find the start node of the loop) from [this stackoverflow answer](https://stackoverflow.com/a/3990650/9481968).
 
     1. Use the runner technique with a slowRunner at a speed of 1 node/step and a fastRunner at a speed of 2 nodes/step.
     2. Iterate until they collide.
