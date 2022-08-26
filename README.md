@@ -15,10 +15,11 @@ The solutions are implemented in **Java**.
 ## Structure
 
 - Problems are grouped in directories by topic, such as **ArraysAndString**, **LinkedLists**, etc.
-- Each problem is placed in it's own directory, named after the problem in **camelCase**, and containing the following files:
+- Each problem is placed in it's own directory, named after the problem in **PascalCase**, and containing the following files:
   - {ProbleName}Analysis.md
     - Lists the optimal solution(s), followed by a detailed algorithmic analysis.
   - {ProblemName}.java
-    - Contains a single class, and public method(s), named after the class, implementing the optimal solution(s).
-    - **Note**: In the case of more than 1 optimal solution, the methods are postfixed with the same index as the solution implemented.
-  - Helper classes (whenever extra classes lead to a more modular design).
+    - Contains the following entries:
+      - public method(s), named after the class, implementing the solution(s) proposed in {ProbleName}Analysis.md.
+        - **Note**: In the case of more than 1 optimal solution, the methods are postfixed with the same index as the solution proposed in {ProbleName}Analysis.md.
+      - Helper classes (whenever extra classes lead to clearer and more modular design).
