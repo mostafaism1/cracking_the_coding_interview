@@ -10,7 +10,7 @@
 
    - This is where the power of **functions** come from; A function is essentially a **name**, i.e. an **abstraction**, therefore it's essential that you be able to extract functions out of lengthy sections of code, and give them a meaningful and clear name.
 
-   - If you stick to this principle you'll find that your functions have a single responsibility (the responsibility being what the name says it does) and are short, making your code clearer, more readable, and maintainable.
+   - If you stick to this principle you'll find that your functions have a single responsibility (the responsibility being what the name says it does), shorter, clearer, and maintainable.
 
    - A useful technique to use when you are still un-clear about how to implement something is to write a function declaration with an empty body (or returning a default value for the return type), this allows you to move on to implementing other functionality that make use of R function, and implementing the function later.
 
@@ -33,11 +33,11 @@
    - Gains from side-effect free code will more than pay up for the performance hit with better readability, maintainability and extensibility.
    - Exceptions: in-place algorithms require mutation.
 
-5. Whenver you're implementing a complex and confusing iterative algorithm (think multiple conditions inside the loop), try to think of a recursive algorith instead; Sometimes just thinking about a recursive algorithm with a base case and a recursive step can help you better structure your iterative algorithm along the same lines as the base case and recursive step.
+5. Whenver you're implementing a complex and confusing iterative algorithm (think multiple conditionals inside a loop), try thinking of a recursive algorith instead; Sometimes just thinking about a recursive algorithm with a base case and a recursive step can help you better structure your iterative algorithm along the same lines as the base case and recursive step.
 
 6. For spatial problems (ex. rotating a matrix), which are usually 2 dimensional (but can be 3 dimensional too), utilize the principles of **linear algebra**, most importantly **Independence**:
    - i, j, k are independent.
-   - Basically break down the operation (ex. rotation), into its effects on each independent co-ordinate separately, then add the effects.
+   - Break down any operation (ex. rotation), into its effects on each independent co-ordinate separately, then add the effects.
 
 - It's also very helpful to make a helper class, such as `Point`, that encapsulates the spatial co-ordinates, x, y, and z, and the operations you might want to perform, such as rotation.
   - However, note that **x maps to a column index** and **y to a row index**, so accessing your 2 dimensional array should be done like so:
@@ -83,7 +83,7 @@
 14. Use the same best practises on Test classes and Test methods that you use for regular classes and methods.
     An example would be sharing test cases between 2 different implementations of the same interface, this can be achieved through placing the common test cases in an abstract class with a `protected` field of the interface type, each implementation's test class would then extend this abstract class and instantiate the protected field to its concrete type in a @BeforeEach.
 
-15. On why Trees & Graphs are more complicated than other **linearly** organized datastructures (i.e. Array, LinkedList, Stack, Queue):
+15. On why Trees & Graphs are more complicated than other **linearly** organized datastructures (i.e. List, Set, Stack, Queue):
 
     1. **Searching** is more complicated.
     2. Worst and Average case time **may vary widely**, and we **must** evaluate **both** aspects for any algorithm.
@@ -92,12 +92,12 @@
 
     - This one might seem obvious, but you will get it wrong surprisingly often, so let this be a reminder :).
 
-17. Replace any `Map<T, Boolean>` with a `Set<T>`.
+17. A useful refactoring is to replace any `Map<T, Boolean>` with a `Set<T>`.
 
 18. Use a `Set` instead of a `List` whenever these **2** conditions are met:
 
-    1. The **Order** of elements is un-important.
-    2. **Duplicate** elements are dis-allowed.
+    1. **Duplicate** elements are dis-allowed.
+    2. The **Order** of elements is un-important.
 
 19. Do create **abstractions** that are meaningful at the problem's domain level, instead of relying on the language's low level structures/types (int/String/List/Set/etc.), create your own structures and abstractions.
 
@@ -106,17 +106,17 @@ Note: You can think of this as **embedding** the problem's domain language insid
 20. When testing a method, document your testing strategy, and include the following:
 
     1. Testing strategy:
-       1. Input space partitions
+       1. Input & output space partitions
        2. Type of coverage of the partitions' sub-domains:
-          1. Cross product
-          2. sub-domains
+          1. Covers the sub-domains
+          2. Covers the cartesian product of the sub-domains
     2. Comment each test case to indicate which sub-domain of each partition it covers.
 
 21. Related to the previous point, partitioning the input space when testing a method, leads to better test cases and better coverage.
 
 22. To come up with a **recursive** solution, you have to employ **wishful** thinking, which basically means to use **inductive reasoning** and to divide the solution into a **base case** and a **recursive step**.
 
-23. Many algorithms require that you create a frequancy map, use `Collections.frequancy(Collection<?> c, Object o)` to simplify the frequancy calculation.
+23. Many algorithms require that you create a frequency map, use `Collections.frequency(Collection<?> c, Object o)` to simplify the frequency calculation.
 
 24. Use `List.copyOf​(Collection<? extends E> coll)` instead of `new ArrayList<>(oldList)` whenever you want to create a new copy of a list from another list (or any other collection).
 
@@ -127,7 +127,7 @@ Note: You can think of this as **embedding** the problem's domain language insid
 
     - This practise is better, not only because it is clearer, but also because it eliminates the guard condition that `i - 1 > 0`.
 
-27. A good technique for debugging, is **root-cause analysis**, which basically lets you zoom in into the specific cause for a problem.
+27. A good technique for debugging is **root-cause analysis**, which basically lets you zoom into the specific cause for a problem.
 
 28. Use static typing to its fullest, so that your code becomes clear and self documenting, ex:
 
@@ -151,6 +151,7 @@ Note: You can think of this as **embedding** the problem's domain language insid
 31. Prefer **independent** partitions when partitioning the input space for a method.
 
     - When partitioning the input space for a method (for the purpose of unit testing), if one partition is **dependent** on another partition, remove one of the two partitions.
+    - Actually, on a second thought, this is does not seem to be problematic at all. In fact, I could see it leading to better test cases. And remember if 2 partitions are not independent—contain some subdomains in common—then a single test case can cover the common subdomains of the 2 partitions. Therefore it won't lead to an explosion of test cases.
 
 32. Instead of using setters with a boolean return that indicates success/failure, prefer to design your setters with void return and optionally throwing an exception on failure.
 
@@ -162,7 +163,7 @@ Note: You can think of this as **embedding** the problem's domain language insid
 34. Your first line of attack when solving a problem, is to design its **method's signature**, this lets you **parametrize** the problem in terms of inputs and output **types**.
 
 35. 2 very important design patterns for **recursive data types**, are the **composite pattern** and the **interpreter pattern**.
-    [Check this illuminating reading from MIT 6.031 Software Construction course, on the design of recursive data types](https://web.mit.edu/6.031/www/sp21/classes/16-recursive-data-types/)
+    [Read MIT 6.031 Software Construction course, on the design of recursive data types](https://web.mit.edu/6.031/www/sp21/classes/16-recursive-data-types/)
 
 36. Why is OO useful?
 
