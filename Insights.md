@@ -20,7 +20,7 @@
      - variables/constants: A variable's name **stands for** a value.
      - classes.: A class' name **stands for** both behaviour and state.
 
-3. Use **functional programming** (Streams in Java 8) for the following operations:
+3. Use **functional programming** (Streams in Java 8) for operations on aggregates (i.e. collection types). The following operations are especially important and lend themselves well to functional programming:
 
    - Map
    - Filter
