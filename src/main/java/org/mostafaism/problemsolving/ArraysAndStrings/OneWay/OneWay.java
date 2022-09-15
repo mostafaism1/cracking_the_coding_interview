@@ -4,11 +4,12 @@ public class OneWay {
 
     public boolean oneWay(String str1, String str2) {
         int lengthDifference = Math.abs(str1.length() - str2.length());
-        return lengthDifference > 1 ? false : lengthDifference == 0 ? canReplace(str1, str2) : canInsert(str1, str2);
+        return lengthDifference > 1 ? false
+                : lengthDifference == 0 ? canReplace(str1, str2) : canInsert(str1, str2);
     }
 
     private boolean canReplace(String str1, String str2) {
-        return mismatchCharacterCount(str1, str2) > 1 ? false : true;
+        return mismatchCharacterCount(str1, str2) <= 1;
     }
 
     /**
@@ -37,17 +38,17 @@ public class OneWay {
     }
 
     /**
-     * Returns true if there exists an index i around which longString can be
-     * partitioned into 2 sub-strings (excluding the ith element) whose
-     * concatenation equals shortString, otherwise false.
+     * Returns true if there exists an index i around which longString can be partitioned into 2
+     * sub-strings (excluding the ith element) whose concatenation equals shortString, otherwise
+     * false.
      * 
      * longString.length must equal shortString.length() + 1.
      * 
      * @param shortString the shorter string
-     * @param longString  the longer string
-     * @return true if there exists an index i around which longString can be
-     *         partitioned into 2 sub-strings (excluding the ith element) whose
-     *         concatenation equals shortString, otherwise false.
+     * @param longString the longer string
+     * @return true if there exists an index i around which longString can be partitioned into 2
+     *         sub-strings (excluding the ith element) whose concatenation equals shortString,
+     *         otherwise false.
      */
     private boolean canPartition(String shortString, String longString) {
         for (int i = 0; i < shortString.length(); i++) {

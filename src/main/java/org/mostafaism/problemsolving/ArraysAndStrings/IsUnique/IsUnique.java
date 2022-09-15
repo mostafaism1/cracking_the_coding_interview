@@ -3,17 +3,18 @@ package org.mostafaism.problemsolving.ArraysAndStrings.IsUnique;
 public class IsUnique {
 
     public boolean isUnique1(String str) {
-        return str.chars().distinct().count() == str.length() ? true : false;
+        return str.chars().distinct().count() == str.length();
     }
 
     public boolean isUnique2(String str) {
         String sortedStr = sort(str);
-        return hasDifferentSubsequentCharacters(sortedStr) ? true : false;
+        return hasDifferentSubsequentCharacters(sortedStr);
     }
 
     // XXX Replace with an in-place sorting algorithm.
     private String sort(String str) {
-        return str.chars().sorted().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+        return str.chars().sorted()
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
     }
 
