@@ -27,10 +27,9 @@
    - Reduce
    - Collect (i.e. mutable reduction)
 
-4. Prefer **pure** functions that maps its inputs to outputs with zero side effects whenever possible, even at the cost of performance.
-
-   - In **most** situations a constant factor increase in time is not noticeable.
-   - Gains from side-effect free code will more than pay up for the performance hit with better readability, maintainability and extensibility.
+4. Prefer **pure** functions that maps its inputs to outputs with zero side effects whenever possible, the performance hit is --in most cases-- acceptable or even unnoticeable.
+    - [Check this video for a comparison](https://www.youtube.com/watch?v=FSnHI6WAeSc).
+   - Gains from side-effect free code will more than pay up for the slight performance hit with better readability, maintainability and extensibility.
    - Exceptions: in-place algorithms require mutation.
 
 5. Whenver you're implementing a complex and confusing iterative algorithm (think multiple conditionals inside a loop), try thinking of a recursive algorith instead; Sometimes just thinking about a recursive algorithm with a base case and a recursive step can help you better structure your iterative algorithm along the same lines as the base case and recursive step.
@@ -69,41 +68,45 @@
 
 - A very common use case is when defining a helper recursive function with a custom return type (to return multiple values).
 
-12. Use the **runner approach** in linked list problems, here's the explanation from the CTCI book:
+13. Use the **runner approach** in linked list problems, here's the explanation from the CTCI book:
 
     > The runner technique means that you iterate through the linked list with **two pointers simultaneously**, with one **ahead** of the other. The "fast" node might be ahead by a fixed amount, or it might be hopping multiple nodes for each one node that the "slow" node iterates through.
     > For example, suppose you had a linked list a 1 - >a2 -> ••• ->an - >b1 ->b2 -> ••• ->bn and you wanted to rearrange it into a1 ->b1 ->a2 - >b 2 -> ••• - >an - >bn. You do not know the length of the linked list (but you do know that the length is an even number).
     > You could have one pointer pl (the fast pointer) move every two elements for every one move that p2 makes. When pl hits the end of the linked list, p2 will be at the midpoint. Then, move pl back to the front and begin "weaving" the elements. On each iteration, p2 selects an element and inserts it after pl.
 
-13. Queues are especially useful for the following 2 use cases:
+14. Queues are especially useful for the following 2 use cases:
 
     1. Breadth-first search.
     2. Implementing a cache.
 
-14. Use the same best practises on Test classes and Test methods that you use for regular classes and methods.
+15. Use the same best practises on Test classes and Test methods that you use for regular classes and methods.
     An example would be sharing test cases between 2 different implementations of the same interface, this can be achieved through placing the common test cases in an abstract class with a `protected` field of the interface type, each implementation's test class would then extend this abstract class and instantiate the protected field to its concrete type in a @BeforeEach.
 
-15. On why Trees & Graphs are more complicated than other **linearly** organized datastructures (i.e. List, Set, Stack, Queue):
+16. On why Trees & Graphs are more complicated than other **linearly** organized datastructures (i.e. List, Set, Stack, Queue):
 
     1. **Searching** is more complicated.
     2. Worst and Average case time **may vary widely**, and we **must** evaluate **both** aspects for any algorithm.
+- For example, in a BST insertion/deletion/lookups have an average case of O(lgN) and a worst case of O(N).
 
-16. Whenever you have 2 variables of the same **reference** type and the 2 variables are pointing to the same object initially, then changing one of those variables (i.e. re-pointing it to another object) **DOES NOT** change (i.e. re-point) the other one.
+17. Whenever you have 2 variables of the same **reference** type and the 2 variables are pointing to the same object initially, then changing one of those variables (i.e. re-pointing it to another object) **DOES NOT** change (i.e. re-point) the other one.
 
     - This one might seem obvious, but you will get it wrong surprisingly often, so let this be a reminder :).
 
-17. A useful refactoring is to replace any `Map<T, Boolean>` with a `Set<T>`.
+18. A useful refactoring is to replace any `Map<T, Boolean>` with a `Set<T>`.
 
-18. Use a `Set` instead of a `List` whenever these **2** conditions are met:
+19. Use a `Set` instead of a `List` whenever these **2** conditions are met:
 
     1. **Duplicate** elements are dis-allowed.
     2. The **Order** of elements is un-important.
 
-19. Do create **abstractions** that are meaningful at the problem's domain level, instead of relying on the language's low level structures/types (int/String/List/Set/etc.), create your own structures and abstractions.
+- Why?
+- To gain O(1) lookups.
+
+20. Do create **abstractions** that are meaningful at the problem's domain level, instead of relying on the language's low level structures/types (int/String/List/Set/etc.), create your own structures and abstractions (i.e. avoid primitive obsession).
 
 Note: You can think of this as **embedding** the problem's domain language inside the programming language of your choice, leading to a **DSL** that is at an **appropriate level** for the problem.
 
-20. When testing a method, document your testing strategy, and include the following:
+21. When testing a method, document your testing strategy, and include the following:
 
     1. Testing strategy:
        1. Input & output space partitions
@@ -111,85 +114,104 @@ Note: You can think of this as **embedding** the problem's domain language insid
           1. Covers the sub-domains
           2. Covers the cartesian product of the sub-domains
     2. Comment each test case to indicate which sub-domain of each partition it covers.
+    
+- [Read MIT 6.031 Software Construction course, on documenting your testing strategy](https://web.mit.edu/6.005/www/sp16/classes/03-testing/#documenting_your_testing_strategy)
 
-21. Related to the previous point, partitioning the input space when testing a method, leads to better test cases and better coverage.
+22. Related to the previous point, partitioning the input space when testing a method, leads to better test cases and better coverage.
 
-22. To come up with a **recursive** solution, you have to employ **wishful** thinking, which basically means to use **inductive reasoning** and to divide the solution into a **base case** and a **recursive step**.
+23. To come up with a **recursive** solution, you have to employ **wishful** thinking, which basically means to use **inductive reasoning** and to divide the solution into a **base case** and a **recursive step**.
 
-23. Many algorithms require that you create a frequency map, use `Collections.frequency(Collection<?> c, Object o)` to simplify the frequency calculation.
+24. Many algorithms require that you calculate the number of occurence of a certain element in a collection, use `Collections.frequency(Collection<?> c, Object o)` to simplify the frequency calculation.
 
-24. Use `List.copyOf​(Collection<? extends E> coll)` instead of `new ArrayList<>(oldList)` whenever you want to create a new copy of a list from another list (or any other collection).
+25. Many algorithms require that you calculate the number of occurence of each element in a collection, use: 
+``` Java
+elements.stream()
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()
+                )
+        )
+```
+to simplify the frequency calculation.
 
-25. Immutability can make your life alot easier, specially when designing recursive functions.
-    Unfortunately, most Java data structures are not immutable, and you will have to manually create a copy of your data structure whenever you want to mutate it, a good option is to use a **persistent data structure** library, such as **pcollections**.
+26. Use `List.copyOf​(Collection<? extends E> coll)` instead of `new ArrayList<>(oldList)` whenever you want to create a new (immutable) copy of a list from another list (or any other collection).
 
-26. In a fori loop, sometimes you want to perform an operation on `i-1`, at the begining of the loop's body, this can be refactored to a better design by moving the operation at the end of the loop's body and replacing `i-1` with `i`.
+27. Immutability can make your life alot easier, specially when designing recursive functions.
+    - Unfortunately, most Java data structures are not immutable, and you will have to manually create a copy of your data structure whenever you want to mutate it, a good option is to use a **persistent data structure** library, such as **pcollections**.
+
+28. In a fori loop, sometimes you want to perform an operation on `i-1`, at the begining of the loop's body, this can be refactored to a better design by moving the operation at the end of the loop's body and replacing `i-1` with `i`.
 
     - This practise is better, not only because it is clearer, but also because it eliminates the guard condition that `i - 1 > 0`.
 
-27. A good technique for debugging is **root-cause analysis**, which basically lets you zoom into the specific cause for a problem.
+29. A good technique for debugging is **root-cause analysis**, which basically lets you zoom into the specific cause for a problem.
 
-28. Use static typing to its fullest, so that your code becomes clear and self documenting, ex:
+30. Use static typing to its fullest, so that your code becomes clear and self documenting, ex:
 
-    - Use the most specific type possible (see point 18).
+    - Use the most specific type possible (see point 19).
     - Declare variables/method parameters as `final` (i.e. **immutable**) whenver possible.
 
-29. Prefer if, else if, else to a sequence of ifs for a set of **mutually exclusive** conditions; This is because the if, else if, else are:
+31. Prefer if, else if, else to a sequence of ifs for a set of **mutually exclusive** conditions; This is because the if, else if, else are:
 
     1. **Self documenting** the mutual exclusion property.
     2. **Self documenting** the **relative order** of the conditions.
     3. A single logical unit that can be interpreted to perform a more abstrat functionality than the individual conditions that compose it. (i.e. The total is greater than the sum of its parts.)
 
-30. Prefer writing methods that contain no blank lines; If you need to divide the method into multiple logical units with blank lines in-between, then the method is probably too long, and handles multiple responsibilities, in which case you should think about a redesign/refactoring.
+32. Prefer writing methods that contain no blank lines; If you need to divide the method into multiple logical units with blank lines in-between, then the method is probably too long, and handles multiple responsibilities, in which case you should think about a redesign/refactoring.
 
     - In fact, Uncle Bob talks about this in his series clean coders episode 3, at 28:35, the gist of what he says is the following:
       1. What is a **large** function?
          > A large function is a **scope**, that scope is **divided** into different areas of functionalities, usually seen as major **indentations**. Those different sections communicate with each other using **variables** that are local to the entire scope.
       2. What do you have when you have a set of variables in long scope, accessed by many different segments of functionality?
-         > A **class**. In fact, long function can almost always be refactored into one or more classes.
+         > A **class**! In fact, long function can almost always be refactored into one or more classes.
 
-31. Prefer **independent** partitions when partitioning the input space for a method.
+33. Prefer **independent** partitions when partitioning the input space for a method.
 
     - When partitioning the input space for a method (for the purpose of unit testing), if one partition is **dependent** on another partition, remove one of the two partitions.
-    - Actually, on a second thought, this is does not seem to be problematic at all. In fact, I could see it leading to better test cases. And remember if 2 partitions are not independent—contain some subdomains in common—then a single test case can cover the common subdomains of the 2 partitions. Therefore it won't lead to an explosion of test cases.
+    - Actually, on a second thought, this does not seem to be problematic at all. In fact, I could see it leading to better test cases. And remember if 2 partitions are not independent—contain some subdomains in common, then a single test case can cover the common subdomains of the 2 partitions. Therefore it won't lead to an explosion of test cases.
 
-32. Instead of using setters with a boolean return that indicates success/failure, prefer to design your setters with void return and optionally throwing an exception on failure.
+34. Instead of using setters with a boolean return that indicates success/failure, prefer to design your setters with void return and optionally throwing an exception on failure.
+    - The technical term for this practise is **Command Query Separation (CQS)** (see point 39).
 
-33. Prefer the **null object pattern** to nulls.
+35. Prefer the **null object pattern** to nulls.
 
-    - Apply the **singleton pattern** along with the **null object pattern**.
+    - The **singleton pattern** goes well with the **null object pattern** (i.e. the null object should be a singleton).
     - Provide a static factory method from the interface to get the singleton instance.
 
-34. Your first line of attack when solving a problem, is to design its **method's signature**, this lets you **parametrize** the problem in terms of inputs and output **types**.
+36. Your first line of attack when solving a problem, is to design its **method's signature**, this lets you **parametrize** the problem in terms of inputs and output **types**.
 
-35. 2 very important design patterns for **recursive data types**, are the **composite pattern** and the **interpreter pattern**.
+37. 2 very important design patterns for **recursive data types**, are the **composite pattern** and the **interpreter pattern**.
     [Read MIT 6.031 Software Construction course, on the design of recursive data types](https://web.mit.edu/6.031/www/sp21/classes/16-recursive-data-types/)
 
-36. Why is OO useful?
+38. Why is OO useful?
 
-    - The most famous answer is that OO is useful because it is really good at **modeling** problems.
+    - The most famous answer is that OO is useful because it's really good at **modeling** problems.
     - Uncle Bob also adds the following amazing insight:
-      > OO is useful because it allows us to design programs where the **souce code dependencies** oppose the **flow of control**.
+      > OO is useful because it allows us to design programs where the **souce code dependencies** (which is a static time phenomenon) oppose the **flow of control** (which is a runtime phenomenon) (i.e. it allows us to achieve **dependcy inversion**).
       - This is useful because it allows us to **de-couple** our low level modules from our high level modules, therefore, we can change our one module without needing to re-compile or re-deploy the other module.
       - OO achieves this through **polymorphism** (also called **polymorphic dispatch**).
       - Polymorphism is implemented by having an abstract type (interface/abstract class), and one or more concrete implementations of that type.
       - This is also called plugin architecture.
       - An advantage of this plugin architecture, is independent devlopability of the application by different teams.
 
-37. Prefer command **query separation (CQS)**
+39. Prefer command **query separation (CQS)**
 
-38. Always seek to generalize your solutions; **Generics** are instrumental for achieving that goal.
+40. Always seek to generalize your solutions; **Generics** are instrumental for achieving that goal.
 
-39. Gerald Jay Sussman on DRY (SICP Lec.2A 5:35):
+41. Gerald Jay Sussman on DRY (SICP Lec.2A 5:35):
     > Whenever you see yourself writing the same thing down more than once, there is something wrong and you should not be doing it, not because it is a waste of time to write something more than once, but because there is some "idea" that can be expressed, generalized, and abstracted out.
 
-40. Gerald Jay Sussman on Wishful Thinking (SICP Lec.2A 50:35):
+42. Gerald Jay Sussman on Wishful Thinking (SICP Lec.2A 50:35):
     > I want you to see the process by which I write these things. I start out with some mathematical idea, perhaps. By wishful thinking, I assume that by some magic I can do something I have a name for. I am not going to worry about how I do it yet, but I am going to write my program anyway. Wishful thinking...essential to good engineering, and certainly essential to good computer science.
 
-41. Always seek to minimize ceremony in your programs.
+43. Always seek to minimize ceremony in your programs.
 
     Definition: Ceremony in a programming language is the plumbing code that's not related to the business logic but, none the less, is required to get the program to compile and run.
 
     Example: Java is considered a high ceremony language.
 
     Elaboration: Ceremony is frowned upon because it conceals the business logic and makes it harder to understand.
+
+44. Remember, the goal of this problem solving practise is not just to develop optimal solutions, but to write expressive programs that clearly explain the solution.
+
+45. To initialize a list with a fixed number of elements with some default value, use `Collections.nCopies(int numOfCopies, T defaultValue)`.
+    - Compare this **declarative** approach with the **imperative** approach of creating a list and filling it in a loop. The declarative approach is clearly superior. 
