@@ -66,7 +66,7 @@
    3. Post-order.
 
    - It's important to differentiate between Traversal and Search (Depth-first and Breadth-first) techniques, traversal techniques are for listing **all** nodes in the tree, while searching is for looking up a **single** node with a certain value.
-   - All traversal techniques are a form of **breadth-first** search.
+   - All traversal techniques are a form of **depth-first** search.
 
 4. **Binary** Heaps (Min-Heaps and Max-Heaps)
 
